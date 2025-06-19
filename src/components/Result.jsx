@@ -3,6 +3,7 @@ import builderResults from './builderResults';
 import facebook from '../assets/facebook.png';
 import linkedin from '../assets/linkdeln.png';
 import instagram from '../assets/instagram.png';
+import Information from "../assets/information.png"
 
 const ResultPage = ({ builderType }) => {
   const result = builderResults[builderType];
@@ -28,7 +29,7 @@ const ResultPage = ({ builderType }) => {
 
   return (
     <div
-      className="w-full min-h-screen text-white px-6 md:px-20 py-16 flex flex-col lg:flex-row gap-10 animate-fade-in"
+      className="w-full min-h-screen text-white px-6 md:px-20 py-16 flex flex-col lg:flex-row gap-10 animate-fade-in mt-5"
       style={{ backgroundColor }}
     >
       {/* LEFT CONTENT */}
@@ -85,7 +86,7 @@ const ResultPage = ({ builderType }) => {
               className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold"
               style={{ backgroundColor }}
             >
-              <span>i</span>
+              <img src={Information} alt="" className='w-[46px] h-[46px]' />
             </div>
 
             <div className="flex flex-col">

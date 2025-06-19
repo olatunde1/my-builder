@@ -30,7 +30,7 @@ const builderResults = {
         * A sneak peek at a tool made to support how you build `,
 
     hashtags: "#VisionaryBuilder #IAmABuilder #BuilderType",
-    // cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
+    cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     image: Visionary
   },
@@ -59,7 +59,7 @@ const builderResults = {
         * A sneak peek at a tool made to support how you build `,
 
     hashtags: "#VisionaryBuilder #IAmABuilder #BuilderType",
-    // cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
+    cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     image: Strategist
   },
@@ -89,7 +89,7 @@ const builderResults = {
         * A sneak peek at a tool made to support how you build `,
 
     hashtags: "#VisionaryBuilder #IAmABuilder #BuilderType",
-    // cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
+    cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     image: Architect
   },
@@ -119,7 +119,7 @@ const builderResults = {
         * A sneak peek at a tool made to support how you build `,
 
     hashtags: "#VisionaryBuilder #IAmABuilder #BuilderType",
-    // cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
+    cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     image: Operator
   },
@@ -149,7 +149,7 @@ const builderResults = {
         * A sneak peek at a tool made to support how you build `,
 
     hashtags: "#VisionaryBuilder #IAmABuilder #BuilderType",
-    // cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
+    cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     image: Connector
   },

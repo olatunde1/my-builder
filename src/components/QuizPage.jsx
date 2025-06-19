@@ -58,8 +58,9 @@ const QuizPage = () => {
       name: userInfo.name,
       email: userInfo.email,
       gender: userInfo.gender,
-      result: resultTrait,
+      results: resultTrait,
     };
+
 
     send('service_2rwyzs2', 'template_h9dvkvd', emailParams, '9qtOtPERVwY1uiSOH')
       .then(() => {
