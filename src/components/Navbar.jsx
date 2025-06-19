@@ -15,11 +15,14 @@ const Navbar = () => {
              Take Quiz
            </h1>
          </Link>
-        <img
-          src={Logo}
-          alt="Quiz Logo"
-          className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
-        />
+         <Link to="/">
+                <img
+                src={Logo}
+                alt="Quiz Logo"
+                className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                />
+         </Link>
+        
         <nav>
           <a
             href="#about"

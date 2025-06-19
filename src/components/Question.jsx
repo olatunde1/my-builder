@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { HiChevronRight, HiChevronLeft } from 'react-icons/hi';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const CircularProgress = ({ current, total, color = "#960018" }) => {
   const radius = 30;
@@ -10,19 +12,8 @@ const CircularProgress = ({ current, total, color = "#960018" }) => {
   const strokeDashoffset = circumference - progress * circumference;
 
   return (
-    <svg
-      height={radius * 2}
-      width={radius * 2}
-      className="absolute top-24 left-52 z-10"
-    >
-      <circle
-        stroke="#ccc"
-        fill="transparent"
-        strokeWidth={stroke}
-        r={normalizedRadius}
-        cx={radius}
-        cy={radius}
-      />
+    <svg height={radius * 2} width={radius * 2} className="absolute top-24 left-52 z-10">
+      <circle stroke="#ccc" fill="transparent" strokeWidth={stroke} r={normalizedRadius} cx={radius} cy={radius} />
       <circle
         stroke={color}
         fill="transparent"
@@ -33,20 +24,12 @@ const CircularProgress = ({ current, total, color = "#960018" }) => {
         cx={radius}
         cy={radius}
       />
-      <text
-        x="50%"
-        y="54%"
-        textAnchor="middle"
-        fill={color}
-        fontSize="12px"
-        fontWeight="bold"
-      >
+      <text x="50%" y="54%" textAnchor="middle" fill={color} fontSize="12px" fontWeight="bold">
         {current}/{total}
       </text>
     </svg>
   );
 };
-
 
 const Question = ({
   questionData,
@@ -56,6 +39,29 @@ const Question = ({
   onPrevious
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
+  const [shuffledOptions, setShuffledOptions] = useState([]);
+
+  // Fisher-Yates Shuffle
+  const shuffleArray = (array) => {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  };
+
+  // Reset selection & shuffle options when question changes
+  useEffect(() => {
+    setSelectedOption(null);
+    if (questionData?.options) {
+      setShuffledOptions(shuffleArray(questionData.options));
+    }
+  }, [questionData]);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   if (!questionData) return null;
 
@@ -77,12 +83,7 @@ const Question = ({
       }}
     >
       {/* Circular Progress */}
-      <CircularProgress
-        current={currentPage}
-        total={totalPages}
-        color={textColor}
-      />
-
+      <CircularProgress current={currentPage} total={totalPages} color={textColor} />
 
       {/* Question Header */}
       <div className="flex flex-col items-center justify-center text-center">
@@ -92,6 +93,10 @@ const Question = ({
         <h1
           className="text-2xl sm:text-2xl font-bold mt-2 w-[400px] mb-10"
           style={{ color: textColor }}
+          data-aos="fade-left"
+          data-aos-anchor="#example-anchor"
+          data-aos-offset="500"
+          data-aos-duration="1000"
         >
           {questionData.question}
         </h1>
@@ -99,10 +104,10 @@ const Question = ({
 
       {/* Options */}
       <form className="w-full max-w-[466px] grid gap-3 text-left mb-14">
-        {questionData.options.map((option, index) => (
+        {shuffledOptions.map((option, index) => (
           <label
             key={index}
-            className={`flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer shadow-md border w-full`}
+            className="flex items-center gap-3 px-4 py-3 rounded-lg cursor-pointer shadow-md border w-full"
             style={{
               backgroundColor:
                 selectedOption === option.trait ? buttonBgColor : 'white',
@@ -129,7 +134,11 @@ const Question = ({
         <button
           onClick={onPrevious}
           disabled={currentPage === 1}
-          className="w-12 h-12 flex items-center justify-center bg-gray-300 text-gray-800 rounded-full disabled:opacity-50 text-2xl"
+          className="w-12 h-12 flex items-center justify-center rounded-full disabled:opacity-50 text-2xl"
+          style={{
+            backgroundColor: buttonBgColor,
+            color: buttonTextColor
+          }}
         >
           <HiChevronLeft />
         </button>

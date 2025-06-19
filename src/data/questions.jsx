@@ -72,7 +72,7 @@ const questions = [
       style: {
       backgroundImage: Laptop4,
       textColor: "#29557D",
-      buttonBgColor: "##29557D",
+      buttonBgColor: "#29557D",
       buttonTextColor: "#fff"
     }
   },
@@ -162,7 +162,7 @@ const questions = [
      style: {
       backgroundImage: Laptop4,
       textColor: "#29557D",
-      buttonBgColor: "##29557D",
+      buttonBgColor: "#29557D",
       buttonTextColor: "#fff"
     }
   },

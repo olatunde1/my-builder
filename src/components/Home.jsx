@@ -54,7 +54,9 @@ const HomePage = () => {
     <p className="text-4xl text-[#FF7201] font-black mb-15">
       Unlock Your True Potential
     </p>
-    <p className="max-w-xl font-medium text-[#144559] mb-8">
+    <p className="max-w-xl font-medium text-[#144559] mb-8"   
+    >
+        
       Gain clarity about how you’re wired to build and thrive in the <br />world.
     </p>
     <Link
