@@ -74,7 +74,7 @@ const Question = ({
 
   return (
     <div
-      className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-10"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-10 mt-21"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -91,7 +91,7 @@ const Question = ({
           Question {currentPage}/{totalPages}
         </h2>
         <h1
-          className="text-2xl sm:text-2xl font-bold mt-2 w-[400px] mb-10"
+          className="text-2xl sm:text-2xl font-bold mt-2 w-[400px] mb-7"
           style={{ color: textColor }}
           data-aos="fade-left"
           data-aos-anchor="#example-anchor"
@@ -103,7 +103,7 @@ const Question = ({
       </div>
 
       {/* Options */}
-      <form className="w-full max-w-[466px] grid gap-3 text-left mb-14">
+      <form className="w-full max-w-[466px] grid gap-3 text-left mb-16">
         {shuffledOptions.map((option, index) => (
           <label
             key={index}

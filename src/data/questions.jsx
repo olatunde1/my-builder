@@ -189,11 +189,11 @@ const questions = [
     id: 11,
     question: "What do you secretly wish people knew about you?",
     options: [
-      { text: "You’re already thinking 10 steps ahead", trait: "Visionary" },
-      { text: "You keep things close to the chest", trait: "Strategist" },
-      { text: "You prefer building over explaining", trait: "Architect" },
-      { text: "You don’t have time to explain — you're doing it", trait: "Operator" },
-      { text: "You care more than you let on", trait: "Connector" },
+      { text: "I care deeply about the future", trait: "Visionary" },
+      { text: "I’m always tracking what’s really happening", trait: "Strategist" },
+      { text: "I’m creating the blueprint while they’re talking", trait: "Architect" },
+      { text: "I’m working hard behind the scenes", trait: "Operator" },
+      { text: "I want everyone to win — not just me", trait: "Connector" },
     ],
      style: {
       backgroundImage: Q1,
