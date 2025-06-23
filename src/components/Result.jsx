@@ -29,7 +29,7 @@ const ResultPage = ({ builderType }) => {
 
   return (
     <div
-      className="w-full min-h-screen text-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-10 sm:py-14 flex flex-col lg:flex-row gap-10 animate-fade-in"
+      className="w-full min-h-screen text-white px-4 sm:px-6 md:px-10 lg:px-16 xl:px-20 py-10 sm:py-14 flex flex-col-reverse lg:flex-row gap-10 animate-fade-in"
       style={{ backgroundColor }}
     >
       {/* LEFT COLUMN */}

@@ -10,7 +10,7 @@ const HomePage = () => {
       className="relative"
     >
   {/* Hero Section */}
-  <main className="w-[1300px] h-[832px] max-w-full mx-auto min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center px- pb-20"
+  <main className="w-[1300px] h-[832px] max-w-full mx-auto min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center pb-20"
    style={{
     backgroundImage: `url(${Laptop})`,
     width: "1100px",
