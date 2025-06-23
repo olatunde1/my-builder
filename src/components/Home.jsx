@@ -7,19 +7,8 @@ import { Link } from "react-router-dom";
 const HomePage = () => {
   return (
     <div
-     
+      className="relative"
     >
-      {/* Navbar
-      <header className="container w-[1238px] mx-auto flex justify-between items-center px-6 py-4  top-0 z-10 pt-10">
-        <h1 className="text-2xl font-semibold text-[#144559] underline italic">Take Quiz</h1>
-        <img src={Logo} alt="Logo" className="w-12 h-12" />
-        <nav className="space-x-4">
-          <a href="#about" className="text-2xl font-semibold text-[#144559] underline italic transition">
-            About
-          </a>
-        </nav>
-      </header> */}
-
   {/* Hero Section */}
   <main className="w-[1300px] h-[832px] max-w-full mx-auto min-h-screen bg-cover bg-center bg-no-repeat flex flex-col items-center justify-center text-center px- pb-20"
    style={{
@@ -30,9 +19,9 @@ const HomePage = () => {
     backgroundPosition: "center",
   }}
   >
-  <h2 className="text-4xl sm:text-8xl font-extrabold mb-[34px] mt-18">
+  <h2 className="text-4xl md:text-8xl font-extrabold mb-[34px] mt-18">
   <span
-    className="bg-clip-text text-transparent"
+    className="bg-clip-text text-transparent font-fredoka"
     style={{
       backgroundImage: "linear-gradient(90deg, #FFAB00 0%, #FF8F00 35%, #2E7D32 70%, #66BB6A 100%)",
     }}
@@ -51,7 +40,7 @@ const HomePage = () => {
  
 </h2>
 
-    <p className="text-4xl text-[#FF7201] font-black mb-15">
+    <p className="text-2xl sm:text-4xl text-[#FF7201] px-1 font-black mb-5 sm:mb-20">
       Unlock Your True Potential
     </p>
     <p className="max-w-xl font-medium text-[#144559] mb-8"   

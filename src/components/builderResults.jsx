@@ -3,6 +3,7 @@ import Strategist from "../assets/Strategist.png";
 import Architect from "../assets/Architect.png";
 import Operator from "../assets/Operator.png";
 import Connector from "../assets/Connector.png";
+import { header } from 'framer-motion/client';
 
 const builderResults = {
   Visionary: {
@@ -32,6 +33,34 @@ const builderResults = {
     hashtags: "#VisionaryBuilder #IAmABuilder #BuilderType",
     cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
+    subject: "You’re a Visionary — Here’s your full Builder profile",
+    header: "You’re a Visionary",
+    descriptionHeader: "Here’s your full Builder profile—and how to move with it.",
+    emailBody: `
+      You’re a Visionary Builder—someone who feels pulled toward possibility, progress, and
+      purpose. Whether you’re leading a team or simply trying to lead yourself into a more aligned life,
+      one thing is clear:
+    `,
+    emailBody2: `
+      You’re here to create something that matters.
+    `,
+    header2: "What That Means:",
+    descriptionHeader2: `
+      You’re the spark.
+      You think fast, feel deeply, and often sense change before others do. You don’t always know
+      how you’ll get there—but you know you’re meant for more.
+      At times, that’s thrilling.
+      At others? It’s overwhelming, frustrating, even lonely.
+      You may have been told:
+      “You’re too much.”
+      “You never finish anything.”
+      “You’ve got so many ideas but no follow-through.”
+      But none of that is the full story.
+      The truth is: your brain is generative, not chaotic.
+      Your energy is visionary, not unfocused.
+
+      You just need tools and support that match the way you build.
+    `,
     image: Visionary
   },
   Strategist: {
