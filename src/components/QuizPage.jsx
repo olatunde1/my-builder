@@ -98,20 +98,42 @@ const QuizPage = () => {
     return Object.keys(errors).length === 0;
   };
 
-  const sendEmail = async (params) => {
-    try {
-      await send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        params,
-        EMAILJS_CONFIG.userId
-      );
-      return true;
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      throw new Error('Failed to send email');
-    }
-  };
+ const sendEmail = async (params) => {
+  const resultData = builderResults[params.trait];
+  try {
+    await send(
+      EMAILJS_CONFIG.serviceId,
+      EMAILJS_CONFIG.templateId,
+      {
+        name: params.name,
+        email: params.email,
+        results: resultData?.header || "Unknown",
+        emailBody: resultData?.emailBody || "",
+        emailBody2: resultData?.emailBody2 || "",
+        header2: resultData?.header2 || "",
+        descriptionHeader2:  resultData?.descriptionHeader2 || "",
+        header3:  resultData?.header3 || "",
+        emailBody3: resultData?.emailBody3 || "",
+        header4:  resultData?.header4 || "",
+        emailBody4: resultData?.emailBody4|| "",
+        header5:  resultData?.header5 || "",
+        emailBody5: resultData?.emailBody5 || "",
+        header6:  resultData?.header6 || "",
+        emailBody6:  resultData?.emailBody6 || "",
+        header7:  resultData?.header7 || "",
+        emailBody7: resultData?.emailBody7 || "",
+        header8:  resultData?.header8 || "",
+        emailBody8:  resultData?.emailBody8 || "",
+      },
+      EMAILJS_CONFIG.userId
+    );
+    return true;
+  } catch (error) {
+    console.error('EmailJS Error:', error);
+    throw new Error('Failed to send email');
+  }
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();

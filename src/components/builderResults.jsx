@@ -3,7 +3,7 @@ import Strategist from "../assets/Strategist.png";
 import Architect from "../assets/Architect.png";
 import Operator from "../assets/Operator.png";
 import Connector from "../assets/Connector.png";
-import { header } from 'framer-motion/client';
+import { head, header } from 'framer-motion/client';
 
 const builderResults = {
   Visionary: {
@@ -49,18 +49,76 @@ const builderResults = {
       You’re the spark.
       You think fast, feel deeply, and often sense change before others do. You don’t always know
       how you’ll get there—but you know you’re meant for more.
+
       At times, that’s thrilling.
       At others? It’s overwhelming, frustrating, even lonely.
+
       You may have been told:
+
       “You’re too much.”
       “You never finish anything.”
       “You’ve got so many ideas but no follow-through.”
+
       But none of that is the full story.
+
       The truth is: your brain is generative, not chaotic.
       Your energy is visionary, not unfocused.
 
       You just need tools and support that match the way you build.
     `,
+    header3: "your builder snapshot",
+    emailBody3: `
+     
+      1.  Primary Trait: Vision-Casting.
+      2.  Superpower: Turning ideas into movements.
+      3.  Motivated By: Purpose, possibility, and momentum.
+      4.  Watch Out For: Overcommitting, burnout, chasing novelty.
+      5.  What You Need: A rhythm and team that helps you finish what you start.
+    
+    `,
+    header4: "Strengths",
+    emailBody4: `
+      1.  You energize others with bold, infectious ideas.
+      2.  You see potential where others see limits.
+      3.  You move before the world gives you permission.
+      4.  You carry purpose in everything you do.
+    `,
+    header5: "What to Watch For",
+    emailBody5: `
+      1.  You burn out from trying to do it all alone.
+      2.  You lose steam when things get repetitive.
+      3.  You struggle with building long-term systems.
+      4.  You’re hardest on yourself when you’re not moving fast.
+          `,
+    header6: "You Build Best With:",
+    emailBody6: ``,
+    header7: "Your Avatar",
+    emailBody7: ``,
+    header8: "Want to Go Deeper?",
+    emailBody8: `
+      We created something to help you take the next step:
+      Your Visionary Builder Blueprint — a 15+ page, personalized guide available for $7.
+
+    Inside, you’ll learn how to:
+    
+      1.  Channel your ideas into grounded action
+      2.  Avoid burnout and “start-and-stall” cycles
+      3.  Identify exactly who you need on your team
+      4.  Build in a way that finally feels like you
+  
+
+   Get My Visionary Blueprint – $7
+
+   It’s for people like you—builders, dreamers, leaders, and seekers—who are ready to make real progress without pretending to be someone else.
+
+     Whatever your next step looks like, just know this:
+      You’re not lost. You’re just early.
+      You don’t need to do everything—just the thing you feel called to do next.
+
+   Keep building boldly.
+    —The Builder Team
+    `,
+
     image: Visionary
   },
   Strategist: {
