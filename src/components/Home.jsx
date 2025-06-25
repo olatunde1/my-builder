@@ -3,10 +3,11 @@ import React from "react";
 import Laptop from "../assets/laptop.png";
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { TypeAnimation } from "react-type-animation";
 
 const HomePage = () => {
   return (
-    <div
+     <div
       className="relative"
     >
   {/* Hero Section */}
@@ -20,8 +21,7 @@ const HomePage = () => {
   }}
   >
   <h2 className="text-4xl md:text-8xl font-extrabold mb-[34px] mt-18">
-  <span
-    className="bg-clip-text text-transparent font-fredoka"
+  <span className="bg-clip-text text-transparent font-fredoka"
     style={{
       backgroundImage: "linear-gradient(90deg, #FFAB00 0%, #FF8F00 35%, #2E7D32 70%, #66BB6A 100%)",
     }}
@@ -57,7 +57,8 @@ const HomePage = () => {
    
   </main>
     </div>
-
+  
+      
   );
 };
 

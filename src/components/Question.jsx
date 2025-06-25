@@ -91,7 +91,7 @@ const Question = ({
 
   return (
     <div
-      className="relative w-full min-h-screen h-[832px] flex flex-col items-center justify-center px-4 sm:px-6 py-10 pb-20"
+      className="relative w-full sm-block min-h-screen h-[832px] flex flex-col items-center justify-center px-4 sm:px-6 py-10 pb-20"
       style={{
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
@@ -183,7 +183,7 @@ const Question = ({
       </div>
 
       {/* Mobile Navigation Fixed */}
-      <div className="sm:hidden absolute bottom-36 left-0 right-0 flex justify-center z-50">
+      <div className="sm:hidden absolute bottom-38 left-0 right-0 flex justify-center z-50">
         <div className="flex justify-between items-center w-full max-w-xs px-6">
           <button
             onClick={() => {
