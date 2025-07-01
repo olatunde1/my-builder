@@ -15,7 +15,7 @@ const CircularProgress = ({ current, total, color = "#960018" }) => {
     <svg
       height={radius * 2}
       width={radius * 2}
-      className="absolute top-6 sm:top-28 left-38 lg:left-58 z-1 mt-2 shadow-lg bg-white rounded-full"
+      className="absolute top-6 sm:top-28 left-1/2 sm:left-[18%] transform -translate-x-1/2 sm:translate-x-0 z-10 mt-2 shadow-lg bg-white rounded-full"
     >
       <circle stroke="" fill="transparent" strokeWidth={stroke} r={normalizedRadius} cx={radius} cy={radius} />
       <circle
@@ -103,15 +103,14 @@ const Question = ({
 
   return (
     <div
-      className="relative w-full min-h-screen flex flex-col items-center justify-center px-0  sm:px-6 py-10 pb-20"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center px-0 sm:px-6 py-10 pb-20"
       style={{
         backgroundImage: `url(${showBackground ? backgroundImage : mobileBackgroundImage || "none"})`,
-        backgroundSize: 'cover',
+        backgroundSize: showBackground ? 'contain' : 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
     >
-    
       {/* Circular Progress */}
       <CircularProgress current={currentPage} total={totalPages} color={textColor} />
 
@@ -121,7 +120,7 @@ const Question = ({
           Question {currentPage}/{totalPages}
         </h2>
         <h1
-          className="text-2xl sm:text-4xl font-bold w-full sm:max-w-[500px] text-center pb-4"
+          className="text-2xl sm:text-4xl font-bold leading-snug w-full sm:max-w-[500px] text-center pb-4"
           style={{ color: textColor }}
           data-aos="fade-left"
           data-aos-anchor="#example-anchor"
@@ -137,8 +136,8 @@ const Question = ({
         {shuffledOptions.map((option, index) => (
           <label
             key={index}
-            className={`flex items-center gap-3 px-4 py-3 sm:py-4 rounded-lg cursor-pointer shadow-sm sm:shadow-md border transition duration-200 w-full min-h-[56px] sm:min-h-[64px] ${
-              selectedOption === option.trait ? 'active:scale-[0.98]' : 'active:scale-[0.99]'
+            className={`flex items-center gap-3 px-4 py-3 sm:py-4 rounded-lg cursor-pointer shadow-sm sm:shadow-md border transition-all duration-200 transform hover:scale-105 hover:ring-2 hover:ring-offset-1 hover:ring-gray-300 w-full min-h-[56px] sm:min-h-[64px] ${
+              selectedOption === option.trait ? 'scale-95' : ''
             }`}
             style={{
               backgroundColor: selectedOption === option.trait ? buttonBgColor : 'white',
@@ -155,7 +154,7 @@ const Question = ({
               value={option.trait}
               checked={selectedOption === option.trait}
               onChange={() => handleOptionSelect(option.trait)}
-              className="flex-shrink-0 w-4 h-4 sm:w-5 sm:h-5 accent-[#8E8E93]"
+              className="mr-2 w-4 h-4 sm:w-5 sm:h-5 accent-[#8E8E93]"
             />
             <span className="font-medium text-sm sm:text-base break-words line-clamp-2 w-full">
               {option.text}
@@ -169,7 +168,7 @@ const Question = ({
         <button
           onClick={() => onPrevious()}
           disabled={currentPage === 1}
-          className="w-12 h-12 flex items-center justify-center rounded-full disabled:opacity-50 text-2xl"
+          className="w-12 h-12 flex items-center justify-center rounded-full disabled:opacity-50 text-2xl transition-all duration-200 hover:scale-110"
           style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
         >
           <HiChevronLeft />
@@ -177,7 +176,7 @@ const Question = ({
         <button
           onClick={() => onNext(selectedOption)}
           disabled={!selectedOption}
-          className="w-12 h-12 flex items-center justify-center rounded-full text-2xl disabled:opacity-50"
+          className="w-12 h-12 flex items-center justify-center rounded-full text-2xl disabled:opacity-50 transition-all duration-200 hover:scale-110"
           style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
         >
           <HiChevronRight />
@@ -185,12 +184,12 @@ const Question = ({
       </div>
 
       {/* Mobile Navigation */}
-      <div className="sm:hidden absolute bottom-22 left-0 right-0 flex justify-center z-50">
-        <div className="flex justify-between items-center w-full max-w-xs px-6">
+      <div className="sm:hidden fixed bottom-6 left-0 right-0 flex justify-center z-50">
+        <div className="flex justify-between items-center w-full max-w-xs px-6  py-2 rounded-xl ">
           <button
             onClick={() => onPrevious()}
             disabled={currentPage === 1}
-            className="w-10 h-10 flex items-center justify-center rounded-full disabled:opacity-50 text-xl"
+            className="w-10 h-10 flex items-center justify-center rounded-full disabled:opacity-50 text-xl transition-all duration-200 hover:scale-110"
             style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
           >
             <HiChevronLeft />
@@ -198,7 +197,7 @@ const Question = ({
           <button
             onClick={() => onNext(selectedOption)}
             disabled={!selectedOption}
-            className="w-10 h-10 flex items-center justify-center rounded-full text-xl disabled:opacity-50"
+            className="w-10 h-10 flex items-center justify-center rounded-full text-xl disabled:opacity-50 transition-all duration-200 hover:scale-110"
             style={{ backgroundColor: selectedOption ? buttonBgColor : '#ccc', color: buttonTextColor }}
           >
             <HiChevronRight />

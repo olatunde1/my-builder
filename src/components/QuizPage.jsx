@@ -189,7 +189,7 @@ const QuizPage = () => {
   if (showForm) {
     return (
       <div
-        className="w-full min-h-screen flex flex-col items-center justify-center px-4 py-10 text-center bg-cover bg-center"
+        className="w-full min-h-screen flex flex-col items-center sm:justify-center px-4 py-5 sm:py-10 text-center bg-cover bg-center"
         style={{
           backgroundImage: `url(${isMobile ? SubmitMobile : SubmitLaptop})`,
           backgroundSize: isMobile ? 'cover' : 'contain',
@@ -198,7 +198,7 @@ const QuizPage = () => {
         }}
       >
         <div className="bg-opacity-90 p-6 sm:p-8 rounded-xl max-w-md w-full">
-          <h2 className="text-[20px] sm:text-2xl font-bold mb-10 sm:mb-6 text-[#144559]">
+          <h2 className="text-[20px] sm:text-2xl font-bold mb-8 sm:mb-6 text-[#144559]">
             Help us know who you are
           </h2>
           <form onSubmit={handleSubmit} className="w-full grid gap-6 text-left">
@@ -266,7 +266,7 @@ const QuizPage = () => {
             <button
               type="submit"
               disabled={status.loading}
-              className="bg-[#144559] text-white py-4 rounded-full font-semibold mt-4 w-full transition duration-300 hover:scale-105"
+              className="bg-[#144559] text-white py-4 rounded-full mx-auto font-semibold mt-4 w-full sm:w-1/2 transition duration-300 hover:scale-105"
             >
               {status.loading ? 'Submitting...' : 'Submit'}
             </button>
