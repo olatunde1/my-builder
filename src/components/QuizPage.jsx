@@ -14,11 +14,11 @@ const EMAILJS_CONFIG = {
 };
 
 const builderPdfLinks = {
-  Visionary: 'https://drive.google.com/file/d/1qyUM7G8mxsTXoHi0tcYL4KdV_6WWiNGD/view?usp=drive_link',
-  Architect: 'https://drive.google.com/file/d/def456/view?usp=sharing',
-  Strategist: 'https://drive.google.com/file/d/ghi789/view?usp=sharing',
-  Connector: 'https://drive.google.com/file/d/jkl012/view?usp=sharing',
-  Operator: 'https://drive.google.com/file/d/mno345/view?usp=sharing',
+  Visionary: 'https://drive.google.com/uc?export=download&id=12n3WJdY9stBaT_pj6q-xVyluPbOzYC_b',
+  Architect: 'https://drive.google.com/uc?export=download&id=1scRTY8opo24YE9ke7PIJKWEgLqWLeRL7',
+  Strategist: 'https://drive.google.com/uc?export=download&id=19WoYZqE8yxkm1UlYZG4gchOA3LUnqyXV',
+  Connector: 'https://drive.google.com/uc?export=download&id=1BYdf1zifKozVTFp_N4GYoqzkA2GdtwQa',
+  Operator: 'https://drive.google.com/uc?export=download&id=1BXVhedNl9TP6Mn5ewtEOCeKsdY_zZN07',
 };
 
 const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
