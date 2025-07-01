@@ -13,7 +13,7 @@ const AccountLayout = ({ children }) => {
       <Navbar />
 
       {/* Page Content */}
-      <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 ">
+      <section className="max-w-9xl mx-auto sm:px-6 lg:px-8 ">
         <main className="w-full">
           {children}
         </main>

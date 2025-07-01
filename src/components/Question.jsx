@@ -15,9 +15,9 @@ const CircularProgress = ({ current, total, color = "#960018" }) => {
     <svg
       height={radius * 2}
       width={radius * 2}
-      className="absolute top-8 sm:top-28 left-36 sm:left-58 z-1 mt-2"
+      className="absolute top-6 sm:top-28 left-38 lg:left-58 z-1 mt-2 shadow-lg bg-white rounded-full"
     >
-      <circle stroke="#ccc" fill="transparent" strokeWidth={stroke} r={normalizedRadius} cx={radius} cy={radius} />
+      <circle stroke="" fill="transparent" strokeWidth={stroke} r={normalizedRadius} cx={radius} cy={radius} />
       <circle
         stroke={color}
         fill="transparent"
@@ -103,20 +103,21 @@ const Question = ({
 
   return (
     <div
-      className="relative w-full min-h-screen flex flex-col items-center justify-center px-0 sm:px-6 py-10 pb-20"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center px-0  sm:px-6 py-10 pb-20"
       style={{
         backgroundImage: `url(${showBackground ? backgroundImage : mobileBackgroundImage || "none"})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
       }}
     >
+    
       {/* Circular Progress */}
       <CircularProgress current={currentPage} total={totalPages} color={textColor} />
 
       {/* Question Header */}
-      <div className="flex flex-col items-center justify-center text-center pt-22 sm:pt-16 pb-6 sm:pb-10 px-4 sm:px-6 w-full max-w-[788px] mx-auto" style={{ minHeight: 120 }}>
-        <h2 className="text-xl font-semibold mb-3 sm:mb-5" style={{ color: textColor }}>
+      <div className="flex flex-col items-center justify-center text-center pt-18 sm:pt-16 pb-6 sm:pb-10 px-4 sm:px-6 w-full max-w-[788px] mx-auto" style={{ minHeight: 120 }}>
+        <h2 className="text-xl font-semibold mb-6 sm:mb-5" style={{ color: textColor }}>
           Question {currentPage}/{totalPages}
         </h2>
         <h1

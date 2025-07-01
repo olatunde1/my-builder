@@ -29,7 +29,7 @@ const HomePage = () => {
           height: "743.48px",
         }}
       >
-        <h2 className="text-4xl md:text-8xl font-extrabold mb-[34px] mt-24 sm:mt-4">
+        <h2 className="text-[42px] md:text-8xl font-extrabold mb-4 sm:mb-8 mt-24 sm:mt-4">
           <TypeAnimation
             sequence={[
               "Discover Your",
@@ -59,12 +59,12 @@ const HomePage = () => {
           </span>
         </h2>
 
-        <p className="text-2xl sm:text-4xl text-[#FF7201] px-1 font-black mb-5 sm:mb-20">
+        <p className="text-1xl sm:text-4xl text-[#FF7201] px-1 font-black mb-10 sm:mb-16">
           Unlock Your True Potential
         </p>
-        <p className="max-w-xl font-medium text-[#144559] mb-8">
-          Gain clarity about how you’re wired to build and thrive in the <br />
-          world.
+        
+        <p className=" max-w-xl font-medium text-[#144559] mb-8">
+          Gain clarity about how you’re wired to build and thrive in the world.
         </p>
         <Link
           to="/quiz"

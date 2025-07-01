@@ -2,6 +2,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 import questions from '../data/questions';
 import Question from './Question';
 import SubmitLaptop from '../assets/submit laptop.png';
+import SubmitMobile from '../assets/mobile2.png'; 
 import { send } from 'emailjs-com';
 import ResultPage from './Result';
 import builderResults from './builderResults';
@@ -41,6 +42,14 @@ const QuizPage = () => {
   const [status, setStatus] = useState({ loading: false, error: null, success: null });
   const [formErrors, setFormErrors] = useState({});
   const calculateResult = useResultCalculator();
+
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 640);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const saved = localStorage.getItem('quizProgress');
@@ -182,17 +191,18 @@ const QuizPage = () => {
       <div
         className="w-full min-h-screen flex flex-col items-center justify-center px-4 py-10 text-center bg-cover bg-center"
         style={{
-          backgroundImage: `url(${SubmitLaptop})`,
-          backgroundSize: 'cover',
+          backgroundImage: `url(${isMobile ? SubmitMobile : SubmitLaptop})`,
+          backgroundSize: isMobile ? 'cover' : 'contain',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat'
         }}
       >
         <div className="bg-opacity-90 p-6 sm:p-8 rounded-xl max-w-md w-full">
-          <h2 className="text-2xl font-bold mb-6 text-[#144559]">
+          <h2 className="text-[20px] sm:text-2xl font-bold mb-10 sm:mb-6 text-[#144559]">
             Help us know who you are
           </h2>
           <form onSubmit={handleSubmit} className="w-full grid gap-6 text-left">
+            {/* Name */}
             <div>
               <label htmlFor="name" className="block font-semibold mb-2 text-black">
                 Name
@@ -210,6 +220,7 @@ const QuizPage = () => {
               {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
             </div>
 
+            {/* Email */}
             <div>
               <label htmlFor="email" className="block font-semibold mb-2 text-black">
                 Email
@@ -227,6 +238,7 @@ const QuizPage = () => {
               {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
             </div>
 
+            {/* Gender */}
             <div>
               <label htmlFor="gender" className="block font-semibold mb-2 text-black">
                 Gender
@@ -246,9 +258,11 @@ const QuizPage = () => {
               {formErrors.gender && <p className="text-red-500 text-sm mt-1">{formErrors.gender}</p>}
             </div>
 
+            {/* Submission Feedback */}
             {status.error && <p className="text-red-600 text-sm font-semibold text-center">{status.error}</p>}
             {status.success && <p className="text-green-600 text-sm font-semibold text-center">Submission successful! Check your email for your full test result.</p>}
 
+            {/* Submit Button */}
             <button
               type="submit"
               disabled={status.loading}
