@@ -43,7 +43,10 @@ const Question = ({
   onPrevious
 }) => {
   const [selectedOption, setSelectedOption] = useState(null);
-  const [selectedAnswers, setSelectedAnswers] = useState({});
+  const [selectedAnswers, setSelectedAnswers] = useState(() => {
+    const saved = localStorage.getItem('quizAnswers');
+    return saved ? JSON.parse(saved) : {};
+  });
   const [showBackground, setShowBackground] = useState(true);
 
   useEffect(() => {
@@ -52,7 +55,7 @@ const Question = ({
 
   useEffect(() => {
     setSelectedOption(selectedAnswers[currentPage] || null);
-  }, [currentPage]);
+  }, [currentPage, selectedAnswers]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -63,6 +66,10 @@ const Question = ({
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem('quizAnswers', JSON.stringify(selectedAnswers));
+  }, [selectedAnswers]);
 
   const shuffleArray = (array) => {
     const shuffled = [...array];
@@ -184,14 +191,14 @@ const Question = ({
       </div>
 
       {/* Mobile Navigation - Sticky */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 flex justify-center py-3">
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 flex justify-center py-3 bg-white">
         <div className="flex justify-between items-center w-full max-w-xs px-6">
           <button
             onClick={() => onPrevious()}
             disabled={currentPage === 1}
             className="w-12 h-12 flex items-center justify-center rounded-full disabled:opacity-50 text-xl transition-all duration-200 hover:scale-110"
-            style={{ 
-              backgroundColor: buttonBgColor, 
+            style={{
+              backgroundColor: buttonBgColor,
               color: buttonTextColor,
               opacity: currentPage === 1 ? 0.5 : 1
             }}
@@ -202,9 +209,9 @@ const Question = ({
             onClick={() => onNext(selectedOption)}
             disabled={!selectedOption}
             className="w-12 h-12 flex items-center justify-center rounded-full text-xl disabled:opacity-50 transition-all duration-200 hover:scale-110"
-            style={{ 
-              backgroundColor: selectedOption ? buttonBgColor : '#ccc', 
-              color: buttonTextColor 
+            style={{
+              backgroundColor: selectedOption ? buttonBgColor : '#ccc',
+              color: buttonTextColor
             }}
           >
             <HiChevronRight />
