@@ -184,7 +184,7 @@ const Question = ({
       </div>
 
       {/* Mobile Navigation - Sticky */}
-      <div className="sm:hidden fixed bottom-0 left-0 right-0 flex justify-center z-50 py-3">
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 flex justify-center py-3">
         <div className="flex justify-between items-center w-full max-w-xs px-6">
           <button
             onClick={() => onPrevious()}

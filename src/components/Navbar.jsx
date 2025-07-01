@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
   <div className="relative w-full z-50 bg-[#EDF2F7] lg:bg-transparent lg:shadow-none lg:border-none shadow-md border-b border-gray-200">
 
-      <header className="w-full max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-6 pt-10">
+      <header className="w-full max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-6 sm:py-6">
         
         {/* Take Quiz (Left) - only visible on md+ */}
         <Link
