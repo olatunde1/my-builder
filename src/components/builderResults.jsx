@@ -34,12 +34,10 @@ const builderResults = {
     cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     subject: "You’re a Visionary — Here’s your full Builder profile",
-    header: "You’re a Visionary",
+    header: "Visionary",
     descriptionHeader: "Here’s your full Builder profile—and how to move with it.",
     emailBody: `
-      You’re a Visionary Builder—someone who feels pulled toward possibility, progress, and
-      purpose. Whether you’re leading a team or simply trying to lead yourself into a more aligned life,
-      one thing is clear:
+      You’re a Visionary Builder, someone who feels pulled toward possibility, progress, and purpose. Whether you’re leading a team or simply trying to lead yourself into a more aligned life, one thing is clear:
     `,
     emailBody2: `
       You’re here to create something that matters.
@@ -158,7 +156,7 @@ const builderResults = {
     cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     subject: "You’re a Strategist  — Here’s your full Builder profile",
-    header: "You’re a Strategist ",
+    header: "Strategist ",
     descriptionHeader: "Let’s dig into what that means—and what to do with it.",
     emailBody: `
       You’re a Strategist Builder—the kind of person who sees patterns where others see problems.
@@ -274,7 +272,7 @@ const builderResults = {
     cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     subject: "You’re an Architect — Here’s how you build best",
-    header: "You’re a Architect",
+    header: "Architect",
     descriptionHeader: "Let’s explore how your mind—and method—builds lasting results.",
     emailBody: `
       You’re an Architect Builder—someone who sees the world through structure, systems, and
@@ -397,7 +395,7 @@ const builderResults = {
     cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     subject: "You’re an Operator — Here’s how you keep everything moving",
-    header: "You’re a Operator",
+    header: "Operator",
     descriptionHeader: "Let’s talk about how your strength builds momentum.",
     emailBody: `
       You’re an Operator Builder—the steady force behind the scenes, turning ideas into results and
@@ -520,7 +518,7 @@ const builderResults = {
     cta: "Discover the proven strategies, challenges, and growth paths unique to a Visionary like you.",
     buttonLabel: "Go Deeper Into Your Builder Blueprint",
     subject: "You’re a Connector — Here’s how your empathy builds powerfully",
-    header: "You’re a Connector",
+    header: "Connector",
     descriptionHeader: "Let’s talk about how your relationships build real results.",
     emailBody: `
     You’re a Connector Builder—someone who leads with empathy, energy, and intuition.

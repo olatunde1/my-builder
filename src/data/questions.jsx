@@ -1,4 +1,7 @@
 import Q1 from '../assets/q1.png';
+import mobileBackground from "../assets/Question 1 Mobile.png"
+import mobileBackground2 from "../assets/mobile2.png"
+import mobileBackground3 from '../assets/mobile3.png'
 import Laptop2 from '../assets/laptop2.png';
 import Laptop3 from '../assets/laptop3.png';
 import Laptop4 from '../assets/laptop4.png';
@@ -19,9 +22,11 @@ const questions = [
     ],
     style: {
       backgroundImage: Q1,
+      mobileBackgroundImage: mobileBackground,
       textColor: "#960018",
       buttonBgColor: "#960018",
       buttonTextColor: "#fff"
+      
     }
   },{
     id: 2,
@@ -35,6 +40,7 @@ const questions = [
     ],
     style: {
       backgroundImage: Laptop2,
+      mobileBackgroundImage: mobileBackground2,
       textColor: "#12776D",
       buttonBgColor: "#12776D",
       buttonTextColor: "#fff"
@@ -53,6 +59,7 @@ const questions = [
     ],
       style: {
       backgroundImage: Laptop3,
+      mobileBackgroundImage: mobileBackground3,
       textColor: "#4C5A77",
       buttonBgColor: "#4C5A77",
       buttonTextColor: "#fff"
