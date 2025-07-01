@@ -132,7 +132,7 @@ const Question = ({
       </div>
 
       {/* Options */}
-      <form className="w-full max-w-[466px] grid gap-3 sm:gap-4 text-left mb-20 px-4 sm:px-0">
+      <form className="w-full max-w-[466px] grid gap-3 sm:gap-4 text-left mb-20 sm:mb-30 px-4 sm:px-0">
         {shuffledOptions.map((option, index) => (
           <label
             key={index}
