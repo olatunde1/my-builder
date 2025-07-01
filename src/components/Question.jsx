@@ -103,7 +103,7 @@ const Question = ({
 
   return (
     <div
-      className="relative w-full min-h-screen flex flex-col items-center justify-center px-0 sm:px-6 py-10 pb-20"
+      className="relative w-full min-h-screen flex flex-col items-center justify-center px-0 sm:px-6 py-10 pb-32 sm:pb-20"
       style={{
         backgroundImage: `url(${showBackground ? backgroundImage : mobileBackgroundImage || "none"})`,
         backgroundSize: showBackground ? 'contain' : 'cover',
@@ -115,7 +115,7 @@ const Question = ({
       <CircularProgress current={currentPage} total={totalPages} color={textColor} />
 
       {/* Question Header */}
-      <div className="flex flex-col items-center justify-center text-center pt-18 sm:pt-16 pb-6 sm:pb-10 px-4 sm:px-6 w-full max-w-[788px] mx-auto" style={{ minHeight: 120 }}>
+      <div className="flex flex-col items-center justify-center text-center pt-18 sm:pt-18 pb-6 sm:pb-10 px-4 sm:px-6 w-full max-w-[788px] mx-auto" style={{ minHeight: 120 }}>
         <h2 className="text-xl font-semibold mb-6 sm:mb-5" style={{ color: textColor }}>
           Question {currentPage}/{totalPages}
         </h2>
@@ -183,22 +183,29 @@ const Question = ({
         </button>
       </div>
 
-      {/* Mobile Navigation */}
-      <div className="sm:hidden fixed bottom-6 left-0 right-0 flex justify-center z-50">
-        <div className="flex justify-between items-center w-full max-w-xs px-6  py-2 rounded-xl ">
+      {/* Mobile Navigation - Sticky */}
+      <div className="sm:hidden fixed bottom-0 left-0 right-0 flex justify-center z-50 py-3">
+        <div className="flex justify-between items-center w-full max-w-xs px-6">
           <button
             onClick={() => onPrevious()}
             disabled={currentPage === 1}
-            className="w-10 h-10 flex items-center justify-center rounded-full disabled:opacity-50 text-xl transition-all duration-200 hover:scale-110"
-            style={{ backgroundColor: buttonBgColor, color: buttonTextColor }}
+            className="w-12 h-12 flex items-center justify-center rounded-full disabled:opacity-50 text-xl transition-all duration-200 hover:scale-110"
+            style={{ 
+              backgroundColor: buttonBgColor, 
+              color: buttonTextColor,
+              opacity: currentPage === 1 ? 0.5 : 1
+            }}
           >
             <HiChevronLeft />
           </button>
           <button
             onClick={() => onNext(selectedOption)}
             disabled={!selectedOption}
-            className="w-10 h-10 flex items-center justify-center rounded-full text-xl disabled:opacity-50 transition-all duration-200 hover:scale-110"
-            style={{ backgroundColor: selectedOption ? buttonBgColor : '#ccc', color: buttonTextColor }}
+            className="w-12 h-12 flex items-center justify-center rounded-full text-xl disabled:opacity-50 transition-all duration-200 hover:scale-110"
+            style={{ 
+              backgroundColor: selectedOption ? buttonBgColor : '#ccc', 
+              color: buttonTextColor 
+            }}
           >
             <HiChevronRight />
           </button>
