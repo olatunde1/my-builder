@@ -1,24 +1,22 @@
+// QuizPage.jsx (updated with better ConvertKit error handling)
 import React, { useState, useCallback, useEffect } from 'react';
 import questions from '../data/questions';
 import Question from './Question';
 import SubmitLaptop from '../assets/submit laptop.png';
-import SubmitMobile from '../assets/mobile2.png'; 
-import { send } from 'emailjs-com';
+import SubmitMobile from '../assets/mobile2.png';
 import ResultPage from './Result';
 import builderResults from './builderResults';
 
-const EMAILJS_CONFIG = {
-  serviceId: 'service_2rwyzs2',
-  templateId: 'template_h9dvkvd',
-  userId: '9qtOtPERVwY1uiSOH'
-};
-
-const builderPdfLinks = {
-  Visionary: 'https://drive.google.com/uc?export=download&id=12n3WJdY9stBaT_pj6q-xVyluPbOzYC_b',
-  Architect: 'https://drive.google.com/uc?export=download&id=1scRTY8opo24YE9ke7PIJKWEgLqWLeRL7',
-  Strategist: 'https://drive.google.com/uc?export=download&id=19WoYZqE8yxkm1UlYZG4gchOA3LUnqyXV',
-  Connector: 'https://drive.google.com/uc?export=download&id=1BYdf1zifKozVTFp_N4GYoqzkA2GdtwQa',
-  Operator: 'https://drive.google.com/uc?export=download&id=1BXVhedNl9TP6Mn5ewtEOCeKsdY_zZN07',
+const CONVERTKIT_CONFIG = {
+  apiKey: '0Uf8FCUN2GjOchtXoAFiEA',
+  formId: {
+    Visionary: '3973346',
+    Architect: '3976309',
+    Strategist: '3976254',
+    Connector: '3976924',
+    Operator: '3976896'
+  },
+  apiUrl: 'https://api.convertkit.com/v3'
 };
 
 const validateEmail = (email) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -42,7 +40,6 @@ const QuizPage = () => {
   const [status, setStatus] = useState({ loading: false, error: null, success: null });
   const [formErrors, setFormErrors] = useState({});
   const calculateResult = useResultCalculator();
-
   const [isMobile, setIsMobile] = useState(window.innerWidth < 640);
 
   useEffect(() => {
@@ -52,20 +49,8 @@ const QuizPage = () => {
   }, []);
 
   useEffect(() => {
-    const saved = localStorage.getItem('quizProgress');
-    if (saved) {
-      const { index, answers } = JSON.parse(saved);
-      setCurrentIndex(index);
-      setAllAnswers(answers);
-    }
+    localStorage.removeItem('quizProgress');
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('quizProgress', JSON.stringify({
-      index: currentIndex,
-      answers: allAnswers
-    }));
-  }, [currentIndex, allAnswers]);
 
   const handleNext = (selectedOption) => {
     if (!selectedOption) return;
@@ -96,48 +81,83 @@ const QuizPage = () => {
     const errors = {};
     if (!userInfo.name.trim()) errors.name = 'Name is required';
     if (!userInfo.email) errors.email = 'Email is required';
-    else if (!validateEmail(userInfo.email)) errors.email = 'Please enter a valid email';
-    if (!userInfo.gender) errors.gender = 'Please select your gender';
+    else if (!validateEmail(userInfo.email)) errors.email = 'Invalid email';
+    if (!userInfo.gender) errors.gender = 'Gender is required';
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  const sendEmail = async (params) => {
-    const resultData = builderResults[params.trait];
-    const pdfLink = builderPdfLinks[params.trait];
+  const subscribeToConvertKit = async (userData, resultTrait) => {
+    const formId = CONVERTKIT_CONFIG.formId[resultTrait];
+    
+    // Debug logging
+    console.log('Attempting ConvertKit subscription:', {
+      resultTrait,
+      formId,
+      userData: { ...userData, email: 'HIDDEN' }
+    });
+    
+    if (!formId) {
+      throw new Error(`No form ID configured for trait: ${resultTrait}`);
+    }
+
+    const url = `${CONVERTKIT_CONFIG.apiUrl}/forms/${formId}/subscribe`;
+
+    const body = {
+      api_key: CONVERTKIT_CONFIG.apiKey,
+      email: userData.email,
+      first_name: userData.name,
+      fields: {
+        gender: userData.gender,
+        quiz_result: resultTrait,
+        builder_type: resultTrait
+      },
+      tags: [
+        'quiz-completed',
+        `builder-${resultTrait.toLowerCase()}`,
+        `gender-${userData.gender.toLowerCase()}`
+      ]
+    };
+
+    console.log('ConvertKit request URL:', url);
+    console.log('ConvertKit request body:', { ...body, api_key: 'HIDDEN', email: 'HIDDEN' });
+    console.log("Subscribing to ConvertKit:");
+    console.log("Form ID:", formId);
+    console.log("URL:", url);
+    console.log("Payload:", JSON.stringify(body, null, 2));
+
 
     try {
-      await send(
-        EMAILJS_CONFIG.serviceId,
-        EMAILJS_CONFIG.templateId,
-        {
-          name: params.name,
-          email: params.email,
-          results: resultData?.header || "Unknown",
-          emailBody: resultData?.emailBody || "",
-          emailBody2: resultData?.emailBody2 || "",
-          header2: resultData?.header2 || "",
-          descriptionHeader2: resultData?.descriptionHeader2 || "",
-          header3: resultData?.header3 || "",
-          emailBody3: resultData?.emailBody3 || "",
-          header4: resultData?.header4 || "",
-          emailBody4: resultData?.emailBody4 || "",
-          header5: resultData?.header5 || "",
-          emailBody5: resultData?.emailBody5 || "",
-          header6: resultData?.header6 || "",
-          emailBody6: resultData?.emailBody6 || "",
-          header7: resultData?.header7 || "",
-          emailBody7: resultData?.emailBody7 || "",
-          header8: resultData?.header8 || "",
-          emailBody8: resultData?.emailBody8 || "",
-          pdfLink: pdfLink || "Not available"
+      const res = await fetch(url, {
+        method: 'POST',
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        EMAILJS_CONFIG.userId
-      );
-      return true;
-    } catch (error) {
-      console.error('EmailJS Error:', error);
-      throw new Error('Failed to send email');
+        body: JSON.stringify(body)
+      });
+
+      const responseData = await res.json();
+      console.log('ConvertKit response:', responseData);
+
+      if (!res.ok) {
+        // Handle specific ConvertKit error messages
+        if (responseData.message?.includes('entity you were trying to find doesn\'t exist')) {
+          throw new Error(`ConvertKit form not found. Please check if form ID "${formId}" exists for "${resultTrait}".`);
+        }
+        if (responseData.message?.includes('Invalid API key')) {
+          throw new Error('ConvertKit API key is invalid. Please check your configuration.');
+        }
+        throw new Error(responseData.message || `ConvertKit error: ${res.status} ${res.statusText}`);
+      }
+
+      return responseData;
+    } catch (fetchError) {
+      console.error('ConvertKit fetch error:', fetchError);
+      if (fetchError.message.includes('fetch')) {
+        throw new Error('Network error. Please check your internet connection and try again.');
+      }
+      throw fetchError;
     }
   };
 
@@ -148,26 +168,39 @@ const QuizPage = () => {
 
     try {
       const resultTrait = calculateResult(allAnswers);
+      console.log('Calculated result trait:', resultTrait);
+      
       setDominantTrait(resultTrait);
-
-      await sendEmail({
-        name: userInfo.name,
-        email: userInfo.email,
-        gender: userInfo.gender,
-        trait: resultTrait,
-        resultText: builderResults[resultTrait]?.description || "No detailed result available."
-      });
-
+      
+      // Attempt ConvertKit subscription
+      await subscribeToConvertKit(userInfo, resultTrait);
+      
       setStatus({ loading: false, error: null, success: true });
-
       setTimeout(() => {
         setShowForm(false);
         setShowResult(true);
-        localStorage.removeItem('quizProgress');
       }, 1500);
     } catch (err) {
-      setStatus({ loading: false, error: 'Something went wrong. Please try again.', success: null });
+      console.error('Submission error:', err);
+      setStatus({ 
+        loading: false, 
+        error: err.message || 'Something went wrong. Please try again.', 
+        success: null 
+      });
     }
+  };
+
+  // Enhanced restart function to clear all data
+  const handleRestart = () => {
+    setCurrentIndex(0);
+    setAllAnswers([]);
+    setShowResult(false);
+    setShowForm(false);
+    setUserInfo({ name: '', email: '', gender: '' });
+    setDominantTrait(null);
+    setStatus({ loading: false, error: null, success: null });
+    setFormErrors({});
+    localStorage.removeItem('quizProgress');
   };
 
   if (showResult) {
@@ -176,12 +209,7 @@ const QuizPage = () => {
         name={userInfo.name}
         builderType={dominantTrait}
         result={builderResults[dominantTrait] || {}}
-        onRestart={() => {
-          setCurrentIndex(0);
-          setAllAnswers([]);
-          setShowResult(false);
-          setUserInfo({ name: '', email: '', gender: '' });
-        }}
+        onRestart={handleRestart}
       />
     );
   }
@@ -189,84 +217,63 @@ const QuizPage = () => {
   if (showForm) {
     return (
       <div
-        className="w-full min-h-screen flex flex-col items-center sm:justify-center px-4 py-5 sm:py-10 text-center bg-cover bg-center"
+        className="w-full min-h-screen flex flex-col items-center justify-center px-4 py-5 text-center bg-cover bg-center"
         style={{
           backgroundImage: `url(${isMobile ? SubmitMobile : SubmitLaptop})`,
-          backgroundSize: isMobile ? 'cover' : 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
         }}
       >
-        <div className="bg-opacity-90 p-6 sm:p-8 rounded-xl max-w-md w-full">
-          <h2 className="text-[20px] sm:text-2xl font-bold mb-8 sm:mb-6 text-[#144559]">
-            Help us know who you are
-          </h2>
-          <form onSubmit={handleSubmit} className="w-full grid gap-6 text-left">
-            {/* Name */}
+        <div className="bg-white bg-opacity-90 p-6 rounded-xl max-w-md w-full">
+          <h2 className="text-2xl font-bold mb-6 text-[#144559]">Tell us about you</h2>
+          <form onSubmit={handleSubmit} className="grid gap-5 text-left">
             <div>
-              <label htmlFor="name" className="block font-semibold mb-2 text-black">
-                Name
-              </label>
+              <label className="font-semibold text-black">Name</label>
               <input
-                id="name"
                 name="name"
                 value={userInfo.name}
                 onChange={handleFormChange}
-                placeholder="Enter your Name"
-                className="w-full px-4 py-4 bg-[#F2F2F7] rounded-t-2xl border-none border-b-2 outline-none"
-                style={{ borderBottom: '2px solid #00796B' }}
-                maxLength={50}
+                className="w-full px-4 py-3 bg-gray-100 rounded"
+                placeholder="Your Name"
               />
-              {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
+              {formErrors.name && <p className="text-red-500 text-sm">{formErrors.name}</p>}
             </div>
 
-            {/* Email */}
             <div>
-              <label htmlFor="email" className="block font-semibold mb-2 text-black">
-                Email
-              </label>
+              <label className="font-semibold text-black">Email</label>
               <input
-                id="email"
                 name="email"
                 type="email"
                 value={userInfo.email}
                 onChange={handleFormChange}
-                placeholder="Enter your Email"
-                className="w-full px-4 py-4 bg-[#F2F2F7] rounded-t-2xl border-none border-b-2 outline-none"
-                style={{ borderBottom: '2px solid #00796B' }}
+                className="w-full px-4 py-3 bg-gray-100 rounded"
+                placeholder="Your Email"
               />
-              {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
+              {formErrors.email && <p className="text-red-500 text-sm">{formErrors.email}</p>}
             </div>
 
-            {/* Gender */}
             <div>
-              <label htmlFor="gender" className="block font-semibold mb-2 text-black">
-                Gender
-              </label>
+              <label className="font-semibold text-black">Gender</label>
               <select
-                id="gender"
                 name="gender"
                 value={userInfo.gender}
                 onChange={handleFormChange}
-                className="w-full px-4 py-4 bg-[#fefefe] rounded-t-2xl border-none border-b-2 outline-none"
-                style={{ borderBottom: '2px solid #00796B' }}
+                className="w-full px-4 py-3 bg-gray-100 rounded"
               >
-                <option value="">Select your gender</option>
+                <option value="">Select Gender</option>
                 <option value="male">Male</option>
                 <option value="female">Female</option>
               </select>
-              {formErrors.gender && <p className="text-red-500 text-sm mt-1">{formErrors.gender}</p>}
+              {formErrors.gender && <p className="text-red-500 text-sm">{formErrors.gender}</p>}
             </div>
 
-            {/* Submission Feedback */}
-            {status.error && <p className="text-red-600 text-sm font-semibold text-center">{status.error}</p>}
-            {status.success && <p className="text-green-600 text-sm font-semibold text-center">Submission successful! Check your email for your full test result.</p>}
+            {status.error && <p className="text-red-600 text-sm font-semibold">{status.error}</p>}
+            {status.success && <p className="text-green-600 text-sm font-semibold">Submission successful!</p>}
 
-            {/* Submit Button */}
             <button
               type="submit"
               disabled={status.loading}
-              className="bg-[#144559] text-white py-4 rounded-full mx-auto font-semibold mt-4 w-full sm:w-1/2 transition duration-300 hover:scale-105"
+              className="bg-[#144559] text-white py-3 rounded-full font-semibold hover:opacity-90 disabled:opacity-50"
             >
               {status.loading ? 'Submitting...' : 'Submit'}
             </button>

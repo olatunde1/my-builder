@@ -11,7 +11,7 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomeComponent />} />
-        <Route path="/quiz" element={<QuizPageComponent />} />
+        <Route path="/quiz" element={<QuizPageComponent builderType />} />
         {/* Add more routes as needed */}
         {/* <Route path="/result" element={<ResultPage />} /> */}
       </Routes>

@@ -1,4 +1,3 @@
-// components/Quiz.js
 import React, { useState } from "react";
 import questions from "../data/questions";
 import { useNavigate } from "react-router-dom";
@@ -38,7 +37,9 @@ const Quiz = () => {
               <input
                 type="radio"
                 name={`question-${q.id}`}
+                checked={answers[q.id] === opt.trait}
                 onChange={() => handleOptionSelect(q.id, opt.trait)}
+                value={opt.trait}
               />
               {opt.text}
             </label>
