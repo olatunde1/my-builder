@@ -159,7 +159,7 @@ const QuizPage = () => {
       });
 
       // Send to Google Sheet via SheetDB
-    await fetch('https://sheetdb.io/api/v1/wd88kp6ule5wh', {
+    await fetch('https://sheetdb.io/api/v1/mib913r4s0ude', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
