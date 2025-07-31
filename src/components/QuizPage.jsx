@@ -158,6 +158,24 @@ const QuizPage = () => {
         resultText: builderResults[resultTrait]?.description || "No detailed result available."
       });
 
+      // Send to Google Sheet via SheetDB
+    await fetch('https://sheetdb.io/api/v1/wd88kp6ule5wh', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        data: {
+          name: userInfo.name,
+          email: userInfo.email,
+          builderType: resultTrait,
+          gender: userInfo.gender,
+          submittedAt: new Date().toLocaleString()
+        }
+      })
+    });
+
+
       setStatus({ loading: false, error: null, success: true });
 
       setTimeout(() => {
@@ -165,7 +183,7 @@ const QuizPage = () => {
         setShowResult(true);
         localStorage.removeItem('quizProgress');
       }, 1500);
-    } catch (err) {
+    } catch {
       setStatus({ loading: false, error: 'Something went wrong. Please try again.', success: null });
     }
   };

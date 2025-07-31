@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { HiChevronRight, HiChevronLeft } from 'react-icons/hi';
-import AOS from 'aos';
 import 'aos/dist/aos.css';
+import Aos from 'aos';
 
 const CircularProgress = ({ current, total, color = "#960018" }) => {
   const radius = 30;
@@ -48,20 +48,21 @@ const Question = ({
     return saved ? JSON.parse(saved) : {};
   });
   const [showBackground, setShowBackground] = useState(true);
+  const [maxPageVisited, setMaxPageVisited] = useState(currentPage);
 
   useEffect(() => {
-    AOS.init();
-  }, []);
+     Aos.init({ duration: 2000 });
+   }, []);
 
   useEffect(() => {
-    setSelectedOption(selectedAnswers[currentPage] || null);
-  }, [currentPage, selectedAnswers]);
+    setSelectedOption(null);
+    setMaxPageVisited(prev => Math.max(prev, currentPage));
+  }, [currentPage]);
 
   useEffect(() => {
     const handleResize = () => {
       setShowBackground(window.innerWidth >= 640);
     };
-
     handleResize();
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
@@ -113,7 +114,7 @@ const Question = ({
       className="relative w-full min-h-screen flex flex-col items-center justify-center px-0 sm:px-6 py-10 pb-32 sm:pb-20"
       style={{
         backgroundImage: `url(${showBackground ? backgroundImage : mobileBackgroundImage || "none"})`,
-        backgroundSize: showBackground ? 'contain' : 'cover',
+        backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
       }}
@@ -127,12 +128,8 @@ const Question = ({
           Question {currentPage}/{totalPages}
         </h2>
         <h1
-          className="text-2xl sm:text-4xl font-bold leading-snug w-full sm:max-w-[500px] text-center pb-4"
+          className="text-2xl sm:text-3xl font-bold leading-snug w-full sm:max-w-[500px] text-center pb-4" data-aos="zoom-in-left"
           style={{ color: textColor }}
-          data-aos="fade-left"
-          data-aos-anchor="#example-anchor"
-          data-aos-offset="500"
-          data-aos-duration="1000"
         >
           {questionData.question}
         </h1>
@@ -140,34 +137,41 @@ const Question = ({
 
       {/* Options */}
       <form className="w-full max-w-[466px] grid gap-3 sm:gap-4 text-left mb-20 sm:mb-30 px-4 sm:px-0">
-        {shuffledOptions.map((option, index) => (
-          <label
-            key={index}
-            className={`flex items-center gap-3 px-4 py-3 sm:py-4 rounded-lg cursor-pointer shadow-sm sm:shadow-md border transition-all duration-200 transform hover:scale-105 hover:ring-2 hover:ring-offset-1 hover:ring-gray-300 w-full min-h-[56px] sm:min-h-[64px] ${
-              selectedOption === option.trait ? 'scale-95' : ''
-            }`}
-            style={{
-              backgroundColor: selectedOption === option.trait ? buttonBgColor : 'white',
-              color: selectedOption === option.trait ? buttonTextColor : textColor,
-              borderColor: selectedOption === option.trait ? buttonBgColor : textColor,
-              boxShadow: selectedOption === option.trait
-                ? `0 4px 6px -1px ${buttonBgColor}33, 0 2px 4px -2px ${buttonBgColor}33`
-                : 'none'
-            }}
-          >
-            <input
-              type="radio"
-              name="answer"
-              value={option.trait}
-              checked={selectedOption === option.trait}
-              onChange={() => handleOptionSelect(option.trait)}
-              className="mr-2 w-4 h-4 sm:w-5 sm:h-5 accent-[#8E8E93]"
-            />
-            <span className="font-medium text-sm sm:text-base break-words line-clamp-2 w-full">
-              {option.text}
-            </span>
-          </label>
-        ))}
+        {shuffledOptions.map((option, index) => {
+          const isPreviouslySelected =
+            currentPage < maxPageVisited && selectedAnswers[currentPage] === option.trait;
+          const isSelected = selectedOption === option.trait;
+
+          return (
+            <label
+              key={index}
+              className={`flex items-center gap-3 px-4 py-3 sm:py-4 rounded-lg cursor-pointer shadow-sm sm:shadow-md border transition-all duration-200 transform hover:scale-105 hover:ring-2 hover:ring-offset-1 hover:ring-gray-300 w-full min-h-[56px] sm:min-h-[64px] ${
+                isSelected || isPreviouslySelected ? 'scale-95' : ''
+              }`}
+              style={{
+                backgroundColor: isSelected || isPreviouslySelected ? buttonBgColor : 'white',
+                color: isSelected || isPreviouslySelected ? buttonTextColor : textColor,
+                borderColor: isSelected || isPreviouslySelected ? buttonBgColor : textColor,
+                boxShadow:
+                  isSelected || isPreviouslySelected
+                    ? `0 4px 6px -1px ${buttonBgColor}33, 0 2px 4px -2px ${buttonBgColor}33`
+                    : 'none',
+              }}
+            >
+              <input
+                type="radio"
+                name="answer"
+                value={option.trait}
+                checked={isSelected}
+                onChange={() => handleOptionSelect(option.trait)}
+                className="mr-2 w-4 h-4 sm:w-5 sm:h-5 accent-[#8E8E93]"
+              />
+              <span className="font-medium text-sm sm:text-base break-words line-clamp-2 w-full">
+                {option.text}
+              </span>
+            </label>
+          );
+        })}
       </form>
 
       {/* Desktop Navigation */}
@@ -200,7 +204,7 @@ const Question = ({
             style={{
               backgroundColor: buttonBgColor,
               color: buttonTextColor,
-              opacity: currentPage === 1 ? 0.5 : 1
+              opacity: currentPage === 1 ? 0.5 : 1,
             }}
           >
             <HiChevronLeft />
@@ -211,7 +215,7 @@ const Question = ({
             className="w-12 h-12 flex items-center justify-center rounded-full text-xl disabled:opacity-50 transition-all duration-200 hover:scale-110"
             style={{
               backgroundColor: selectedOption ? buttonBgColor : '#ccc',
-              color: buttonTextColor
+              color: buttonTextColor,
             }}
           >
             <HiChevronRight />

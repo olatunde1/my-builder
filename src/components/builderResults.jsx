@@ -3,7 +3,7 @@ import Strategist from "../assets/Strategist.png";
 import Architect from "../assets/Architect.png";
 import Operator from "../assets/Operator.png";
 import Connector from "../assets/Connector.png";
-import { head, header } from 'framer-motion/client';
+// import { head, header } from 'framer-motion/client';
 
 const builderResults = {
   Visionary: {

@@ -2,8 +2,14 @@ import React, { useEffect, useState } from "react";
 import Laptop from "../assets/laptop.png";
 import { Link } from "react-router-dom";
 import { TypeAnimation } from "react-type-animation";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const HomePage = () => {
+  useEffect(() => {
+    Aos.init({ duration: 2000 });
+  }, []);
+
   const [showBackground, setShowBackground] = useState(true);
 
   useEffect(() => {
@@ -29,7 +35,7 @@ const HomePage = () => {
           height: "743.48px",
         }}
       >
-        <h2 className="text-[42px] md:text-8xl font-extrabold mb-4 sm:mb-8 mt-24 sm:mt-4">
+        <h2 className="text-[42px] md:text-8xl font-extrabold mb-4 sm:mb-8 mt-24 sm:mt-4" data-aos="fade-right">
           <TypeAnimation
             sequence={[
               "Discover Your",
@@ -49,7 +55,7 @@ const HomePage = () => {
           />
           <br />
           <span
-            className="bg-clip-text text-transparent"
+            className="bg-clip-text text-transparent" 
             style={{
               backgroundImage:
                 "linear-gradient(90deg, #FFAB00 0%, #FF8F00 35%, #2E7D32 70%, #66BB6A 100%)",
@@ -59,11 +65,11 @@ const HomePage = () => {
           </span>
         </h2>
 
-        <p className="text-1xl sm:text-4xl text-[#FF7201] px-1 font-black mb-10 sm:mb-16">
+        <p className="text-1xl sm:text-4xl text-[#FF7201] px-1 font-black mb-10 sm:mb-16" data-aos="zoom-in-right">
           Unlock Your True Potential
         </p>
         
-        <p className=" max-w-xl sm:w-[500px] px-5 font-medium text-[#144559] mb-8">
+        <p className=" max-w-xl sm:w-[500px] px-5 font-medium text-[#144559] mb-8" data-aos="zoom-in-up">
           Gain clarity about how you’re wired to build and thrive in the world.
         </p>
         <Link
