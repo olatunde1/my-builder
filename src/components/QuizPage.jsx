@@ -8,9 +8,9 @@ import ResultPage from './Result';
 import builderResults from './builderResults';
 
 const EMAILJS_CONFIG = {
-  serviceId: 'service_2rwyzs2',
-  templateId: 'template_h9dvkvd',
-  userId: '9qtOtPERVwY1uiSOH'
+  serviceId: 'service_0rrj39h',
+  templateId: 'template_iiayum8',
+  userId: '7HdPKeyASopVKsTig'
 };
 
 const builderPdfLinks = {
