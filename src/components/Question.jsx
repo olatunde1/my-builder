@@ -55,9 +55,16 @@ const Question = ({
    }, []);
 
   useEffect(() => {
+  // Set selected option from stored answers if exists
+  if (selectedAnswers[currentPage]) {
+    setSelectedOption(selectedAnswers[currentPage]);
+  } else {
     setSelectedOption(null);
-    setMaxPageVisited(prev => Math.max(prev, currentPage));
-  }, [currentPage]);
+  }
+
+  setMaxPageVisited(prev => Math.max(prev, currentPage));
+}, [currentPage, selectedAnswers]);
+
 
   useEffect(() => {
     const handleResize = () => {

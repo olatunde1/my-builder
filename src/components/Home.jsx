@@ -72,12 +72,16 @@ const HomePage = () => {
         <p className=" max-w-xl sm:w-[500px] px-5 font-medium text-[#144559] mb-8" data-aos="zoom-in-up">
           Gain clarity about how you’re wired to build and thrive in the world.
         </p>
-        <Link
+        <i class='bx bxs-like sm:bx-wiggle'>
+           <Link
           to="/quiz"
           className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
         >
           Take Quiz
         </Link>
+        </i>
+       
+        
       </main>
     </div>
   );
