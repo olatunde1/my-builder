@@ -1,24 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { HiMenu, HiX } from 'react-icons/hi';
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
-  return (
-  <div className="relative w-full z-50 bg-[#EDF2F7] lg:bg-transparent lg:shadow-none lg:border-none shadow-md border-b border-gray-200">
+  useEffect(() => {
+    if (menuOpen && dropdownRef.current) {
+      dropdownRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }, [menuOpen]);
 
+  return (
+    <div className="relative w-full z-50 bg-[#EDF2F7] lg:bg-transparent lg:shadow-none lg:border-none shadow-md border-b border-gray-200">
       <header className="w-full max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-6 sm:py-6">
-        
         {/* Take Quiz (Left) - only visible on md+ */}
-        <Link
-          to="/quiz"
-          className="hidden md:block text-xl sm:text-2xl font-semibold text-[#144559] cursor-pointer underline italic transform transition-transform duration-300 hover:scale-105"
-        >
-          Take Quiz
-        </Link>
+       <Link
+         to="/quiz"
+         onClick={() => {
+           localStorage.removeItem("quizAnswers"); // clear previous answers
+         }}
+         className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+       >
+         Take Quiz
+       </Link>
 
         {/* Logo (Center always) */}
         <Link to="/">
@@ -48,11 +57,16 @@ const Navbar = () => {
 
       {/* Mobile Dropdown Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-white px-6 pt-2 pb-4 space-y-3 shadow-md border-t">
+        <div
+          ref={dropdownRef}
+          className="md:hidden bg-white px-6 pt-2 pb-4 space-y-3 shadow-md border-t"
+        >
           <Link
             to="/quiz"
-            onClick={toggleMenu}
-            className="block text-lg font-semibold text-[#144559] underline italic"
+            onClick={() => {
+              localStorage.removeItem("quizAnswers"); // clear previous answers
+            }}
+            className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
           >
             Take Quiz
           </Link>
