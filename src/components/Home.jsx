@@ -73,12 +73,16 @@ const HomePage = () => {
           Gain clarity about how you’re wired to build and thrive in the world.
         </p>
         <i class='bx bxs-like sm:bx-wiggle'>
-           <Link
-          to="/quiz"
-          className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-        >
-          Take Quiz
-        </Link>
+          <Link
+  to="/quiz"
+  onClick={() => {
+    localStorage.removeItem("quizAnswers"); // clear previous answers
+  }}
+  className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+>
+  Take Quiz
+</Link>
+
         </i>
        
         

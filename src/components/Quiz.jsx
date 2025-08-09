@@ -1,4 +1,3 @@
-// components/Quiz.js
 import React, { useState } from "react";
 import questions from "../data/questions";
 import { useNavigate } from "react-router-dom";
