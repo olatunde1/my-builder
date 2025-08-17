@@ -24,7 +24,7 @@ const Navbar = () => {
          onClick={() => {
            localStorage.removeItem("quizAnswers"); // clear previous answers
          }}
-         className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
+         className=" px-6 py-2 md:px-11 md:py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
        >
          Take Quiz
        </Link>
@@ -34,7 +34,7 @@ const Navbar = () => {
           <img
             src={Logo}
             alt="Quiz Logo"
-            className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+            className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
           />
         </Link>
 
