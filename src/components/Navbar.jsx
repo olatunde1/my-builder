@@ -61,7 +61,7 @@ const Navbar = () => {
           ref={dropdownRef}
           className="md:hidden bg-white px-6 pt-2 pb-4 space-y-3 shadow-md border-t"
         >
-          <Link
+          {/* <Link
             to="/quiz"
             onClick={() => {
               localStorage.removeItem("quizAnswers"); // clear previous answers
@@ -69,7 +69,7 @@ const Navbar = () => {
             className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
           >
             Take Quiz
-          </Link>
+          </Link> */}
           <a
             href="#about"
             onClick={toggleMenu}
