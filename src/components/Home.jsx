@@ -69,7 +69,7 @@ const HomePage = () => {
           Unlock Your True Potential
         </p>
         
-        <p className=" max-w-xl sm:w-[500px] px-5 font-medium text-[#144559] mb-8" data-aos="zoom-in-up">
+        <p className=" max-w-xl sm:w-[500px] px-5 font-medium text-[#144559] mb-14 md:mb-8" data-aos="zoom-in-up">
           Gain clarity about how you’re wired to build and thrive in the world.
         </p>
         <i class='bx bxs-like sm:bx-wiggle'>
