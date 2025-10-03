@@ -1,86 +1,197 @@
-import React, { useState, useRef, useEffect } from 'react';
-import Logo from "../assets/logo.png";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { HiMenu, HiX } from 'react-icons/hi';
+import LogoImage from "../assets/new-logo.png";
 
-const Navbar = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const dropdownRef = useRef(null);
+export default function ResponsiveNavbar({ logoSrc, logoAlt = "Logo" }) {
+  const [open, setOpen] = useState(false);
+  const [hovered, setHovered] = useState(null);
 
-  const toggleMenu = () => setMenuOpen(!menuOpen);
+  const navItems = [
+    { title: "Home", to: "/" },
+    { title: "Builder Types", to: "/builder-types" },
+    { title: "Take Quiz", to: "/take-quiz", cta: true },
+  ];
 
-  useEffect(() => {
-    if (menuOpen && dropdownRef.current) {
-      dropdownRef.current.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const getNavItems = () => {
+    if (hovered && hovered !== "Take Quiz") {
+      return navItems.map(item =>
+        item.title === "Take Quiz" ? { ...item, cta: false } : item
+      );
     }
-  }, [menuOpen]);
+    return navItems;
+  };
 
   return (
-    <div className="relative w-full z-50 bg-[#EDF2F7] lg:bg-transparent lg:shadow-none lg:border-none shadow-md border-b border-gray-200">
-      <header className="w-full max-w-7xl mx-auto flex justify-between items-center px-4 sm:px-6 lg:px-8 py-6 sm:py-6">
-        {/* Take Quiz (Left) - only visible on md+ */}
-       <Link
-         to="/quiz"
-         onClick={() => {
-           localStorage.removeItem("quizAnswers"); // clear previous answers
-         }}
-         className=" px-6 py-2 md:px-11 md:py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-       >
-         Take Quiz
-       </Link>
-
-        {/* Logo (Center always) */}
-        <Link to="/">
-          <img
-            src={Logo}
-            alt="Quiz Logo"
-            className="w-8 h-8 sm:w-12 sm:h-12 object-contain"
-          />
-        </Link>
-
-        {/* About (Right) - only visible on md+ */}
-        <a
-          href="#about"
-          className="hidden md:block text-lg sm:text-2xl font-semibold text-[#144559] underline italic transition hover:text-[#144559] hover:underline"
-        >
-          About
-        </a>
-
-        {/* Hamburger Icon (only on small screens) */}
-        <button
-          className="md:hidden text-3xl text-[#144559] bg-white rounded-full p-3 shadow-md hover:bg-gray-100 transition-colors duration-300"
-          onClick={toggleMenu}
-        >
-          {menuOpen ? <HiX /> : <HiMenu />}
-        </button>
-      </header>
-
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-        <div
-          ref={dropdownRef}
-          className="md:hidden bg-white px-6 pt-2 pb-4 space-y-3 shadow-md border-t"
-        >
-          {/* <Link
-            to="/quiz"
-            onClick={() => {
-              localStorage.removeItem("quizAnswers"); // clear previous answers
-            }}
-            className="px-11 py-3 bg-[#144559] hover:bg-[#537786] text-white text-lg font-medium rounded-full shadow-lg transition duration-300 ease-in-out transform hover:scale-105"
-          >
-            Take Quiz
-          </Link> */}
-          <a
-            href="#about"
-            onClick={toggleMenu}
-            className="block text-lg font-semibold text-[#144559] underline italic"
-          >
-            About
-          </a>
+    <header className="navbar-header">
+      <div className="navbar-container">
+        <div className="navbar-row">
+          {/* Logo */}
+          <div className="navbar-logo">
+            <Link to="/" className="navbar-logo-link">
+              <div className="navbar-logo-img-wrap">
+                <img src={LogoImage} alt={logoAlt} className="navbar-logo-img" />
+              </div>
+            </Link>
+          </div>
+          {/* Desktop nav */}
+          <nav className="desktop-nav">
+            {getNavItems().map((item) => (
+              <Link
+                key={item.title}
+                to={item.to}
+                className={`nav-link${item.cta ? ' nav-link-cta' : ''}`}
+                onMouseEnter={() => setHovered(item.title)}
+                onMouseLeave={() => setHovered(null)}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </nav>
+          {/* Mobile menu button */}
+          <div className="mobile-toggle">
+            <button
+              onClick={() => setOpen((s) => !s)}
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="mobile-toggle-btn"
+            >
+              {open ? "✕" : "☰"}
+            </button>
+          </div>
         </div>
-      )}
-    </div>
+      </div>
+      {/* Mobile panel */}
+      <div className={`mobile-panel${open ? ' open' : ''}`}>
+        <div className="mobile-panel-inner">
+          {getNavItems().map((item) => (
+            <Link
+              key={item.title}
+              to={item.to}
+              onClick={() => setOpen(false)}
+              className={`nav-link${item.cta ? ' nav-link-cta' : ''}`}
+              onMouseEnter={() => setHovered(item.title)}
+              onMouseLeave={() => setHovered(null)}
+            >
+              {item.title}
+            </Link>
+          ))}
+        </div>
+      </div>
+      {/* Responsive styles */}
+      <style>{`
+        .navbar-header {
+          width: 100%;
+          background: #fff;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+          position: sticky;
+          top: 0;
+          z-index: 50;
+        }
+        .navbar-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 1rem;
+        }
+        .navbar-row {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          height: 64px;
+        }
+        .navbar-logo-link {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          text-decoration: none;
+        }
+        .navbar-logo-img-wrap {
+          height: 48px;
+          width: 150px;
+          border-radius: 6px;
+          overflow: hidden;
+          flex-shrink: 0;
+        }
+        .navbar-logo-img {
+          height: 100%;
+          width: 100%;
+          object-fit: contain;
+        }
+        .desktop-nav {
+          display: flex;
+          gap: 1.5rem;
+        }
+        .nav-link {
+          padding: 0.25rem 1rem;
+          border-radius: 24px;
+          font-size: 15px;
+          font-weight: 500;
+          text-decoration: none;
+          color: #374151;
+          background: transparent;
+          transition: background 0.2s, color 0.2s;
+        }
+        .nav-link-cta {
+          background: #144559;
+          color: #fff;
+          box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+        }
+        .nav-link:hover, .nav-link:focus {
+          background: #144559;
+          color: #fff;
+        }
+        .mobile-toggle {
+          display: none;
+        }
+        .mobile-toggle-btn {
+          padding: 8px;
+          border-radius: 6px;
+          background: none;
+          border: none;
+          cursor: pointer;
+          font-size: 2rem;
+          color: #144559;
+        }
+        .mobile-panel {
+          display: none;
+          position: fixed;
+          top: 64px;
+          left: 0;
+          width: 100vw;
+          background: #fff;
+          box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+          z-index: 100;
+          transition: max-height 0.3s;
+        }
+        .mobile-panel.open {
+          display: block;
+        }
+        .mobile-panel-inner {
+          padding: 1.5rem 1rem 1rem 1rem;
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+        }
+        @media (max-width: 900px) {
+          .navbar-logo-img-wrap {
+            width: 120px;
+            height: 40px;
+          }
+        }
+        @media (max-width: 768px) {
+          .desktop-nav {
+            display: none !important;
+          }
+          .mobile-toggle {
+            display: flex !important;
+            align-items: center;
+          }
+          .mobile-panel {
+            top: 56px;
+          }
+          .navbar-row {
+            height: 56px;
+          }
+        }
+      `}</style>
+    </header>
   );
-};
-
-export default Navbar;
+}
