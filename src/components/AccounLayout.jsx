@@ -13,7 +13,7 @@ const AccountLayout = ({ children }) => {
       <Navbar />
 
       {/* Page Content */}
-      <section className="max-w-9xl mx-auto py-8">
+      <section className="max-w-9xl mx-auto">
         <main className="w-full">
           {children}
         </main>
