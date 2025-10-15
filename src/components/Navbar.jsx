@@ -29,7 +29,7 @@ export default function ResponsiveNavbar({ logoSrc, logoAlt = "Logo" }) {
           <div className="navbar-logo">
             <Link to="/" className="navbar-logo-link">
               <div className="navbar-logo-img-wrap">
-                <img src={LogoImage} alt={logoAlt} className="navbar-logo-img" />
+                <img src={LogoImage} alt={logoAlt} className="navbar-logo-img"/>
               </div>
             </Link>
           </div>

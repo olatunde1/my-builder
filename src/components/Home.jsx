@@ -170,12 +170,17 @@ const HomePage = () => {
         connect deeper with others.
       </p>
       <div className="flex gap-4 mt-6 mx-auto md:mx-0 justify-center lg:justify-start">
-        <button className="bg-[#144559] text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full hover:bg-[#0f3545] transition">
-          Explore Types
-        </button>
+        <Link to="/builder-types">
+            <button className="bg-[#144559] text-white px-6 py-2 sm:px-8 sm:py-3 rounded-full hover:bg-[#0f3545] transition">
+              Explore Types
+            </button>
+        </Link>
+        <Link to="/quiz">
         <button className="flex items-center gap-2 px-6 py-2 sm:px-8 sm:py-3 border border-[#144559] text-[#144559] rounded-full hover:bg-[#144559] hover:text-white transition">
           Take Quiz <FaArrowRightLong className="text-lg mt-1" />
         </button>
+        </Link>
+       
       </div>
     </div>
 
@@ -255,7 +260,7 @@ const HomePage = () => {
 
         {/* ✅ DISCOVER SECTION */}
         <section
-          className="w-full bg-cover bg-center bg-no-repeat text-white py-20 px-6"
+          className="w-full bg-contain bg-center bg-no-repeat text-white py-20 px-6"
           style={{ backgroundImage: `url(${Discover})` }}
         >
           <div className="max-w-3xl mx-auto text-center">
@@ -266,9 +271,11 @@ const HomePage = () => {
               This isn't just a quiz. It's a clarity tool revealing how you think, work,
               and build — across relationships, business, leadership, and life.
             </p>
-            <button className="bg-[#FFDB51] font-bold text-[#0f3340] px-12 py-3 rounded-full hover:bg-[#cfaa14] transition">
+            <Link to="/quiz">
+              <button className="bg-[#FFDB51] font-bold text-[#0f3340] px-12 py-3 rounded-full hover:bg-[#cfaa14] transition">
               Take Quiz
-            </button>
+              </button>
+            </Link>
           </div>
         </section>
 

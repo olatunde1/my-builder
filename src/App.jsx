@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-// import HomePage from "./pages/HomePage";
 import QuizPage from "./components/QuizPage";
 import HomeComponent from "./components/HomeComponent";
 import QuizPageComponent from "./components/QuizPageComponent";
@@ -9,12 +8,13 @@ import StrategistPageComponent from "./components/pages/StrategistPageComponent"
 import ArchitectPageComponent from "./components/pages/ArchitectPageComponent";
 import OperatorPageComponent from "./components/pages/OperatorPageComponent";
 import ConnectorPageComponent from "./components/pages/ConnectorPageComponent";
+import ScrollToTop from "./components/ScrollToTop"; // ✅ import it
 import "./App.css";
-// import ResultPage from "./components/Result";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop /> {/* ✅ scrolls to top on every route change */}
       <Routes>
         <Route path="/" element={<HomeComponent />} />
         <Route path="/quiz" element={<QuizPageComponent />} />
@@ -24,8 +24,6 @@ function App() {
         <Route path="/pages/architect" element={<ArchitectPageComponent />} />
         <Route path="/pages/operator" element={<OperatorPageComponent />} />
         <Route path="/pages/connector" element={<ConnectorPageComponent />} />
-
-        {/* Add more routes as needed */}
         {/* <Route path="/result" element={<ResultPage />} /> */}
       </Routes>
     </Router>
