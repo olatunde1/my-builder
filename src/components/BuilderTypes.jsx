@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Visionary from "../assets/visionary.png";
+import Visionary from "../assets/visionary.png"
 import Strategist from "../assets/strategist.png";
 import Architect from "../assets/architect.png";
 import Operator from "../assets/operator.png";
