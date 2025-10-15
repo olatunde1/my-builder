@@ -260,7 +260,7 @@ const HomePage = () => {
 
         {/* ✅ DISCOVER SECTION */}
         <section
-          className="w-full bg-contain bg-center bg-no-repeat text-white py-20 px-6"
+          className="w-full lg:bg-contain bg-center bg-no-repeat text-white py-20 px-6"
           style={{ backgroundImage: `url(${Discover})` }}
         >
           <div className="max-w-3xl mx-auto text-center">
