@@ -1,43 +1,43 @@
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import Visionary from "../assets/visionary.png";
-import Strategist from "../assets/strategist.png";
-import Architect from "../assets/architect.png";
-import Operator from "../assets/operator.png";
-import Connector from "../assets/connector.png";
+import TheVisionary from "../assets/visionary.png";
+import TheStrategist from "../assets/strategist.png";
+import TheArchitect from "../assets/architect.png";
+import TheOperator from "../assets/operator.png";
+import TheConnector from "../assets/connector.png";
 
 const builderData = [
   {
     title: "The Visionary",
-    image: Visionary,
+    image: TheVisionary,
     path: "/pages/visionary",
     description:
       "The bold, future-focused Builder who leads with purpose and possibility.",
   },
   {
     title: "The Strategist",
-    image: Strategist,
+    image: TheStrategist,
     path: "/pages/strategist",
     description:
       "The precise, pattern-seeking Builder who turns vision into action.",
   },
   {
     title: "The Architect",
-    image: Architect,
+    image: TheArchitect,
     path: "/pages/architect",
     description:
       "The systems-minded Builder who turns complexity into clarity.",
   },
   {
     title: "The Operator",
-    image: Operator,
+    image: TheOperator,
     path: "/pages/operator",
     description:
       "The grounded Builder who brings consistency, structure, and momentum.",
   },
   {
     title: "The Connector",
-    image: Connector,
+    image: TheConnector,
     path: "/pages/connector",
     description:
       "The relational Builder who thrives through people, purpose, and presence.",
