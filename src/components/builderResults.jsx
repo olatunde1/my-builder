@@ -1,8 +1,8 @@
 import Visionary from '../assets/visionary.png';
-import Strategist from "../assets/Strategist.png";
-import Architect from "../assets/Architect.png";
-import Operator from "../assets/Operator.png";
-import Connector from "../assets/Connector.png";
+import Strategist from "../assets/strategist.png";
+import Architect from "../assets/architect.png";
+import Operator from "../assets/operator.png";
+import Connector from "../assets/connector.png";
 // import { head, header } from 'framer-motion/client';
 
 const builderResults = {
