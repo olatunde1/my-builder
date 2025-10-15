@@ -9,7 +9,7 @@ export default function ResponsiveNavbar({ logoSrc, logoAlt = "Logo" }) {
   const navItems = [
     { title: "Home", to: "/" },
     { title: "Builder Types", to: "/builder-types" },
-    { title: "Take Quiz", to: "/take-quiz", cta: true },
+    { title: "Take Quiz", to: "/quiz", cta: true },
   ];
 
   const getNavItems = () => {
