@@ -1,5 +1,5 @@
 import BuilderTypePage from "../../components/BuilderTypePage";
-import ConnectorImg from "../../assets/the connector.png";
+import ConnectorImg from "../../assets/the-connector.png";
 
 export default function ConnectorPage() {
   return (

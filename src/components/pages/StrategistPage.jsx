@@ -1,5 +1,5 @@
 import BuilderTypePage from "../../components/BuilderTypePage";
-import StrategistImg from "../../assets/the strategist.png";
+import StrategistImg from "../../assets/the-strategist.png";
 
 export default function StrategistPage() {
   return (

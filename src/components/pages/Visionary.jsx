@@ -1,5 +1,5 @@
 import BuilderTypePage from "../BuilderTypePage";
-import VisionaryImg from "../../assets/the visionary.png";
+import VisionaryImg from "../../assets/the-visionary.png";
 
 export default function VisionaryPage() {
   return (

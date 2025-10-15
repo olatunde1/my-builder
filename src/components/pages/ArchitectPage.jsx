@@ -1,5 +1,5 @@
 import BuilderTypePage from "../../components/BuilderTypePage";
-import ArchitectImg from "../../assets/the architect.png";
+import ArchitectImg from "../../assets/the-architect.png";
 
 export default function ArchitectPage() {
   return (

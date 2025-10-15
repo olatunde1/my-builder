@@ -1,5 +1,5 @@
 import BuilderTypePage from "../../components/BuilderTypePage";
-import OperatorImg from "../../assets/the operator.png";
+import OperatorImg from "../../assets/the-operator.png";
 
 export default function OperatorPage() {
   return (
