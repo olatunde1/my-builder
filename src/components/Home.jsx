@@ -11,7 +11,7 @@ import ExploreBackground from "../assets/explore background.png";
 import Explore from "../assets/explore.png";
 import { FaArrowCircleRight } from "react-icons/fa";
 import { FaArrowRightLong } from "react-icons/fa6";
-import Rating1 from "../assets/Rating.png";
+import Rating1 from "./../assets/rating.png";
 import Discover from "../assets/how-you-are-wired-background.png";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
