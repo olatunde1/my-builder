@@ -159,10 +159,10 @@ const HomePage = () => {
     {/* Text */}
     <div className="flex-1 text-center lg:text-left" data-aos="fade-up">
       <p className="pb-4 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent text-sm sm:text-base font-medium tracking-wide">
-        → Personality Types
+        → Builder Types
       </p>
       <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-snug text-balance">
-        Explore and Understand other Builder Types
+        Explore and Understand the Builder Types
       </h1>
       <p className="max-w-[478px] text-sm sm:text-base text-gray-600 md:text-gray-700 leading-relaxed">
         Through our complimentary personality profiles, you'll discover the
@@ -197,65 +197,65 @@ const HomePage = () => {
 
 
         {/* ✅ TESTIMONIALS SECTION */}
-       <section className="py-16 md:py-12">
-  <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
-    <img src={Rating1} alt="Rating" className="mx-auto w-16 sm:w-20" />
-    <p className="text-sm sm:text-base font-medium tracking-wide text-[#BF8000] mb-2">
-      Testimonials
-    </p>
-    <h2 className="text-2xl sm:text-3xl md:text-[32px] font-bold mb-8 text-[#144559]">
-      See What Our Users Are Saying
-    </h2>
+       {/* <section className="py-16 md:py-12"> */}
+        {/* <div className="max-w-6xl mx-auto px-6 lg:px-12 text-center">
+          <img src={Rating1} alt="Rating" className="mx-auto w-16 sm:w-20" />
+          <p className="text-sm sm:text-base font-medium tracking-wide text-[#BF8000] mb-2">
+            Testimonials
+          </p>
+          <h2 className="text-2xl sm:text-3xl md:text-[32px] font-bold mb-8 text-[#144559]">
+            See What Our Users Are Saying
+          </h2> */}
 
-    <Swiper
-      modules={[Navigation, Pagination, Autoplay]}
-      spaceBetween={20}
-      breakpoints={{
-        320: { slidesPerView: 1 },
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
-      autoplay={{ delay: 2000, disableOnInteraction: false }}
-      pagination={{ el: ".swiper-pagination", clickable: true }}
-      navigation={{
-        nextEl: ".custom-next",
-        prevEl: ".custom-prev",
-      }}
-      className="pb-12"
-    >
-      {["Robert Fox", "Darrell Steward", "Savannah Nguyen"].map((name, i) => (
-        <SwiperSlide key={i}>
-          <div className="bg-[#F2F2F7] p-8 rounded-2xl shadow text-center cursor-pointer">
-            <h4 className="font-semibold text-[#144559] pb-4">{name}</h4>
-            <hr className="mb-4 border-t border-[#231F20]" />
-            <p className="text-[#303030] text-sm">
-              Amazing! Reading my results felt like looking into a crystal-clear
-              reflection of myself. I didn’t think it would be this precise.
-            </p>
+          {/* <Swiper
+            modules={[Navigation, Pagination, Autoplay]}
+            spaceBetween={20}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              640: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            autoplay={{ delay: 2000, disableOnInteraction: false }}
+            pagination={{ el: ".swiper-pagination", clickable: true }}
+            navigation={{
+              nextEl: ".custom-next",
+              prevEl: ".custom-prev",
+            }}
+            className="pb-12"
+          > */}
+            {/* {["Robert Fox", "Darrell Steward", "Savannah Nguyen"].map((name, i) => (
+              <SwiperSlide key={i}>
+                <div className="bg-[#F2F2F7] p-8 rounded-2xl shadow text-center cursor-pointer">
+                  <h4 className="font-semibold text-[#144559] pb-4">{name}</h4>
+                  <hr className="mb-4 border-t border-[#231F20]" />
+                  <p className="text-[#303030] text-sm">
+                    Amazing! Reading my results felt like looking into a crystal-clear
+                    reflection of myself. I didn’t think it would be this precise.
+                  </p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper> */}
+
+          {/* ✅ Pagination visible on all screens */}
+          {/* <div className="flex flex-col items-center mt-6 space-y-3">
+            <div
+              className="swiper-pagination !relative !flex justify-center gap-2"
+              style={{ marginBottom: "20px" }}
+            /> */}
+
+            {/* ✅ Arrows visible ONLY on large screens */}
+            {/* <div className="hidden lg:flex items-center gap-6">
+              <button className="custom-prev bg-[#144559] text-white p-3 rounded-full hover:bg-[#0f3545] transition">
+                <FaChevronLeft />
+              </button>
+              <button className="custom-next bg-[#144559] text-white p-3 rounded-full hover:bg-[#0f3545] transition">
+                <FaChevronRight />
+              </button>
+            </div>
           </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-
-    {/* ✅ Pagination visible on all screens */}
-    <div className="flex flex-col items-center mt-6 space-y-3">
-      <div
-        className="swiper-pagination !relative !flex justify-center gap-2"
-        style={{ marginBottom: "20px" }}
-      />
-
-      {/* ✅ Arrows visible ONLY on large screens */}
-      <div className="hidden lg:flex items-center gap-6">
-        <button className="custom-prev bg-[#144559] text-white p-3 rounded-full hover:bg-[#0f3545] transition">
-          <FaChevronLeft />
-        </button>
-        <button className="custom-next bg-[#144559] text-white p-3 rounded-full hover:bg-[#0f3545] transition">
-          <FaChevronRight />
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
+        </div> */}
+      {/* </section> */}
 
 
         {/* ✅ DISCOVER SECTION */}
