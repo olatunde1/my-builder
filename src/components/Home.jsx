@@ -116,7 +116,7 @@ const HomePage = () => {
               {/* Step 2 */}
               <div
                 className="w-full max-w-[255px] mx-auto p-2 rounded-lg"
-                data-aos="fade-up"
+                // data-aos="fade-up"
               >
                 <img src={Image1} alt="Result" className="mx-auto w-16 sm:w-20 mb-4" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
@@ -136,7 +136,7 @@ const HomePage = () => {
               {/* Step 3 */}
               <div
                 className="w-full max-w-[255px] mx-auto p-2 rounded-lg"
-                data-aos="fade-up"
+                // data-aos="fade-up"
               >
                 <img src={Pdf} alt="Blueprint" className="mx-auto w-16 sm:w-20 mb-4" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
