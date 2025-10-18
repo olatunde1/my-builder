@@ -41,9 +41,9 @@ const HomePage = () => {
     <div className="relative">
       <main>
         {/* ✅ HERO SECTION */}
-        <div className="bg-[#144559] lg:bg-white hero relative px-0 sm:px-6 lg:px-8">
+        <div className="bg-[#144559]  lg:bg-white hero relative px-0 sm:px-6 lg:px-8">
           <div
-            className="w-full max-w-[1240px] gap-10 lg:gap-16 mx-auto min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between px-4 sm:px-10 lg:px-20 bg-no-repeat"
+            className="w-full max-w-[1240px] gap-10 lg:gap-16 mx-auto lg:min-h-screen flex flex-col-reverse lg:flex-row items-center justify-between px-4 sm:px-10 lg:px-20 bg-no-repeat"
             style={{
               backgroundImage: `url(${Laptop})`,
               backgroundSize: isMobile ? "cover" : "contain",
@@ -57,7 +57,7 @@ const HomePage = () => {
               className="text-center lg:text-left px-2 sm:px-0 flex-1"
               // data-aos="fade-up"
             >
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-2 pt-8 lg:pt-[0px] leading-snug">
+              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-2 pt-2 lg:pt-[0px] leading-snug">
                 Know Your Builder Type
               </h1>
               <p className="text-white text-base sm:text-lg lg:text-xl pt-2 lg:pb-20 sm:pt-4 leading-relaxed">
@@ -67,11 +67,11 @@ const HomePage = () => {
             </div>
 
             {/* Image Section */}
-            <div className="flex justify-center lg:justify-end w-full mt-6 lg:mt-[78px] flex-1">
+            <div className="flex justify-center lg:justify-end w-full mt-2 lg:mt-[78px] flex-1">
               <img
                 src={QuizImage}
                 alt="Quiz"
-                className="w-[490px] sm:w-[360px] md:w-[420px] lg:w-[490px] h-auto object-contain"
+                className="w-[490px] sm:w-[360px] md:w-[420px] lg:w-[490px] h-[400px] lg:h-auto object-contain"
               />
             </div>
           </div>
@@ -79,7 +79,7 @@ const HomePage = () => {
           {/* Take Quiz Button */}
           <Link
             to="/quiz"
-            className="bg-[#AE4815] w-[90%] sm:w-[420px] py-3 sm:py-6 bottom-5 left-5 absolute lg:left-32 lg:translate-x-0 lg:bottom-5 text-white rounded-xl sm:rounded-full text-lg sm:text-2xl font-semibold flex items-center justify-center gap-2 hover:bg-[#9a3909] transition duration-300"
+            className="bg-[#AE4815] w-[90%] sm:w-[420px] py-3 sm:py-6 bottom-10 left-5 absolute lg:left-32 lg:translate-x-0 lg:bottom-5 text-white rounded-xl sm:rounded-full text-lg sm:text-2xl font-semibold flex items-center justify-center gap-2 hover:bg-[#9a3909] transition duration-300"
           >
             Take the Quiz <FaArrowCircleRight className="text-2xl sm:text-4xl" />
           </Link>
