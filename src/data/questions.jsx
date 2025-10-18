@@ -15,7 +15,7 @@ import Laptop6 from '../assets/laptop6.png';
 const questions = [
   {
     id: 1,
-    question: "When a bold idea hits you, what do you usually do ?",
+    question: "  When a bold idea hits you, what do you usually do ?",
     options: [
       { text: "Start talking it out loud, even if it sounds crazy", trait: "Visionary" },
       { text: "Pause and figure out the ripple effects first", trait: "Strategist" },
@@ -33,7 +33,7 @@ const questions = [
     }
   },{
     id: 2,
-    question: "Your dream team would be made up of people who ...",
+    question: "  Your dream team would be made up of people who ...",
     options: [
       { text: "Aren’t afraid to think wildly big", trait: "Visionary" },
       { text: "Always know what’s going on and stay ahead", trait: "Strategist" },
@@ -52,7 +52,7 @@ const questions = [
       
   {
     id: 3,
-    question: "What frustrates you the most?",
+    question: "  What frustrates you the most?",
     options: [
       { text: "Playing small when we could go big", trait: "Visionary" },
       { text: "Lack of planning or foresight", trait: "Strategist" },
@@ -71,7 +71,7 @@ const questions = [
       
   {
     id: 4,
-    question: "What do people usually thank you for?",
+    question: "  What do people usually thank you for?",
     options: [
       { text: "Your inspiring ideas", trait: "Visionary" },
       { text: "Your clarity and timing", trait: "Strategist" },
@@ -90,7 +90,7 @@ const questions = [
       
   {
     id: 5,
-    question: "Your ideal weekend project is...",
+    question: "  Your ideal weekend project is...",
     options: [
       { text: "Brainstorming 10 new ways to solve a problem", trait: "Visionary" },
       { text: "Mapping out your 5-year plan or goals", trait: "Strategist" },
@@ -109,7 +109,7 @@ const questions = [
       
   {
     id: 6,
-    question: "What kind of leader are you?",
+    question: "  What kind of leader are you?",
     options: [
       { text: "Vision-caster — get people excited about what’s next", trait: "Visionary" },
       { text: "Strategist — align everyone and guide execution", trait: "Strategist" },
@@ -128,7 +128,7 @@ const questions = [
       
   {
     id: 7,
-    question: "Which fictional character feels most like you?",
+    question: "  Which fictional character feels most like you?",
     options: [
       { text: "Tony Stark", trait: "Visionary" },
       { text: "Batman", trait: "Strategist" },
@@ -147,7 +147,7 @@ const questions = [
       
   {
     id: 8,
-    question: "If your success were a movie, the plot twist would be...",
+    question: "  If your success were a movie, the plot twist would be...",
     options: [
       { text: "Everyone said it was impossible — but you did it", trait: "Visionary" },
       { text: "You predicted it way before it happened", trait: "Strategist" },
@@ -166,7 +166,7 @@ const questions = [
       
   {
     id: 9,
-    question: "You walk into a messy team situation. What’s your first move?",
+    question: "  You walk into a messy team situation. What’s your first move?",
     options: [
       { text: "Ask “what’s the big goal here?” ", trait: "Visionary" },
       { text: "Assess the players and the power dynamics", trait: "Strategist" },
@@ -185,7 +185,7 @@ const questions = [
       
   {
     id: 10,
-    question: "When people misunderstand you, it’s often because...",
+    question: "  When people misunderstand you, it’s often because...",
     options: [
       { text: "You’re already thinking 10 steps ahead", trait: "Visionary" },
       { text: "You keep things close to the chest", trait: "Strategist" },
@@ -204,7 +204,7 @@ const questions = [
 
   {
     id: 11,
-    question: "What do you secretly wish people knew about you?",
+    question: "  What do you secretly wish people knew about you?",
     options: [
       { text: "I care deeply about the future", trait: "Visionary" },
       { text: "I’m always tracking what’s really happening", trait: "Strategist" },

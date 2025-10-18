@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { HiChevronRight, HiChevronLeft } from 'react-icons/hi';
-import 'aos/dist/aos.css';
-import Aos from 'aos';
+// import 'aos/dist/aos.css';
+// import Aos from 'aos';
 
 const CircularProgress = ({ current, total, color = "#960018" }) => {
   const radius = 30;
@@ -50,9 +50,9 @@ const Question = ({
   const [showBackground, setShowBackground] = useState(true);
   const [maxPageVisited, setMaxPageVisited] = useState(currentPage);
 
-  useEffect(() => {
-     Aos.init({ duration: 2000 });
-   }, []);
+  // useEffect(() => {
+  //    Aos.init({ duration: 2000 });
+  //  }, []);
 
   useEffect(() => {
   // Set selected option from stored answers if exists
@@ -116,6 +116,37 @@ const Question = ({
     }
   };
 
+  const TypewriterText = ({ text, speed = 50 }) => {
+  const [displayed, setDisplayed] = useState('');
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    setDisplayed('');
+    setDone(false);
+
+    const interval = setInterval(() => {
+      if (i < text.length) {
+        setDisplayed((prev) => prev + text.charAt(i));
+        i++;
+      } else {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, speed);
+
+    return () => clearInterval(interval);
+  }, [text, speed]);
+
+  return (
+    <span>
+      {displayed}
+     <span className="animate-pulse">|</span>
+    </span>
+  );
+};
+
+
   return (
     <div
       className="relative w-full min-h-screen flex flex-col items-center justify-center px-0 sm:px-6 py-10 pb-32 sm:pb-20"
@@ -134,11 +165,11 @@ const Question = ({
         <h2 className="text-xl font-semibold mb-6 sm:mb-5" style={{ color: textColor }}>
           Question {currentPage}/{totalPages}
         </h2>
-        <h1
-          className="text-2xl sm:text-3xl font-bold leading-snug w-full sm:max-w-[500px] text-center pb-4" data-aos="zoom-in-left"
+       <h1
+          className="text-2xl sm:text-3xl font-bold leading-snug w-full sm:max-w-[500px] text-center pb-4"
           style={{ color: textColor }}
         >
-          {questionData.question}
+          <TypewriterText key={currentPage} text={questionData.question} />
         </h1>
       </div>
 
