@@ -89,7 +89,7 @@ const HomePage = () => {
         <div className="start">
           <div className="max-w-[1240px] text-center px-4 sm:px-0 py-16 mx-auto">
             <h2 className="text-3xl sm:text-4xl font-bold text-[#144559]">
-              Start in <span className="text-[#AE4815]">Three</span> Steps
+              How it <span className="text-[#AE4815]">Works</span>
             </h2>
 
             <div className="grid sm:grid-cols-3 gap-12 mt-12 relative">
@@ -100,7 +100,7 @@ const HomePage = () => {
               >
                 <img src={Quiz} alt="Quiz" className="mx-auto w-16 sm:w-20 mb-4" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
-                  Take the quiz (3–5 minutes)
+                  Take the quiz <br /> (3–5 minutes)
                 </h3>
                 <p className="text-gray-600 text-sm sm:text-base">
                   Answer a few quick questions to discover your builder type.
