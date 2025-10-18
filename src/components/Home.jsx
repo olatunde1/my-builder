@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import Laptop from "../assets/no-image-background.png";
 import QuizImage from "../assets/bulb-image.png";
 import { Link } from "react-router-dom";
-import Pdf from "../assets/pdf-file 1.png";
-import Image1 from "../assets/image 5.png";
-import Quiz from "../assets/quiz.png";
+import Pdf from "../assets/complete-lg.svg";
+import Image1 from "../assets/potential-lg.svg";
+import Quiz from "../assets/results-lg.svg";
 import Line1 from "../assets/Line Indicator.png";
 import Line2 from "../assets/Line Indicator 2.png";
 import ExploreBackground from "../assets/explore background.png";
@@ -94,31 +94,38 @@ const HomePage = () => {
 
             <div className="grid sm:grid-cols-3 gap-12 mt-12 relative">
               {/* Step 1 */}
-              <div
-                className="w-full max-w-[255px] mx-auto p-2 rounded-lg"
-                // data-aos="fade-up"
-              >
-                <img src={Quiz} alt="Quiz" className="mx-auto w-16 sm:w-20 mb-4" />
-                <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
-                  Take the quiz <br /> (3–5 minutes)
-                </h3>
-                <p className="text-gray-600 text-sm sm:text-base">
-                  Answer a few quick questions to discover your builder type.
-                </p>
-              </div>
+            <div className="relative w-full flex-col-reverse max-w-[355px] mx-auto p-6 rounded-lg shadow-xl border-t-4 border-[#AE4815] cursor-pointer overflow-hidden">
+  {/* Half-curve background vector */}
+  <div className="absolute -top-10 -right-16 w-100 h-40 bg-gradient-to-br from-[#FFD7B5] to-[#FFB07C] rounded-full opacity-40 blur-2xl"></div>
 
-              <img
+  <img
+    src={Quiz}
+    alt="Quiz"
+    className="w-16 sm:w-20 mb-4 ml-auto relative z-10"
+  />
+
+  <div className="relative z-10">
+    <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
+      Take the quiz (3–5 minutes)
+    </h3>
+    <p className="text-gray-600 text-sm sm:text-base">
+      Answer a few quick questions to discover your builder type.
+    </p>
+  </div>
+</div>
+
+
+              {/* <img
                 src={Line1}
                 alt=""
                 className="hidden sm:block absolute top-26 left-1/3 transform -translate-x-1/2 w-24 lg:w-36"
-              />
+              /> */}
 
               {/* Step 2 */}
-              <div
-                className="w-full max-w-[255px] mx-auto p-2 rounded-lg"
-                // data-aos="fade-up"
-              >
-                <img src={Image1} alt="Result" className="mx-auto w-16 sm:w-20 mb-4" />
+              <div className="relative w-full flex-col-reverse max-w-[355px] mx-auto p-6 rounded-lg shadow-xl border-t-4 border-[#027D5F] cursor-pointer overflow-hidden">
+  {/* Half-curve background vector */}
+  <div className="absolute -top-10 -right-16 w-100 h-40 bg-gradient-to-br from-[#027D5F] to-[#9de0cf] rounded-full opacity-40 blur-2xl"></div>
+                <img src={Image1} alt="Result" className="w-16 sm:w-20 mb-4 ml-auto" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
                   See Your Builder Type Instantly
                 </h3>
@@ -127,18 +134,17 @@ const HomePage = () => {
                 </p>
               </div>
 
-              <img
+              {/* <img
                 src={Line2}
                 alt=""
                 className="hidden sm:block absolute top-26 right-1/3 transform translate-x-1/2 w-24 lg:w-36"
-              />
+              /> */}
 
               {/* Step 3 */}
-              <div
-                className="w-full max-w-[255px] mx-auto p-2 rounded-lg"
-                // data-aos="fade-up"
-              >
-                <img src={Pdf} alt="Blueprint" className="mx-auto w-16 sm:w-20 mb-4" />
+              <div className="relative w-full flex-col-reverse max-w-[355px] mx-auto p-6 rounded-lg shadow-xl border-t-4 border-[#FFDB51] cursor-pointer overflow-hidden">
+  {/* Half-curve background vector */}
+  <div className="absolute -top-10 -right-16 w-100 h-40 bg-gradient-to-br from-[#FFDB51] to-[#f5e6ad] rounded-full opacity-40 blur-2xl"></div>
+                <img src={Pdf} alt="Blueprint" className="w-16 sm:w-20 mb-4 ml-auto" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
                   Unlock Your Free In-Depth Builder Blueprint
                 </h3>
@@ -165,9 +171,10 @@ const HomePage = () => {
         Explore and Understand the Builder Types
       </h1>
       <p className="max-w-[478px] text-sm sm:text-base text-gray-600 md:text-gray-700 leading-relaxed">
-        Through our complimentary personality profiles, you'll discover the
-        motivations, inspirations, and concerns that shape each type — helping you
-        connect deeper with others.
+        This isn't just a quiz. It's a clarity tool that reveals how you instinctively think, work, and build in
+        the world across relationships, business, leadership, and life. The Builder Type Assessment
+        helps you understand your dominant wiring so you can thrive in the roles and environments
+        best suited to how you naturally function.
       </p>
       <div className="flex gap-4 mt-6 mx-auto md:mx-0 justify-center lg:justify-start">
         <Link to="/builder-types">
@@ -268,8 +275,7 @@ const HomePage = () => {
               Discover how you’re wired today
             </h2>
             <p className="text-[16px] leading-relaxed mb-8">
-              This isn't just a quiz. It's a clarity tool revealing how you think, work,
-              and build — across relationships, business, leadership, and life.
+             Builder Types reveal the unique way you’re designed to think, lead, and create impact.
             </p>
             <Link to="/quiz">
               <button className="bg-[#FFDB51] font-bold text-[#0f3340] px-12 py-3 rounded-full hover:bg-[#cfaa14] transition">

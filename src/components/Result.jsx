@@ -98,7 +98,7 @@ const ResultPage = ({ builderType }) => {
                 <span>
                   {' '}
                   <a href="#" className="underline hover:opacity-80 transition" style={{ color: backgroundColor }}>
-                    Click here
+                    Click here <button></button>
                   </a>
                 </span>
               </p>
