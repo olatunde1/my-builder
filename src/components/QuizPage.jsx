@@ -206,91 +206,118 @@ const QuizPage = () => {
 
   if (showForm) {
     return (
-      <div
-        className="w-full min-h-screen flex flex-col items-center sm:justify-center px-4 py-5 sm:py-10 text-center bg-cover bg-center"
-        style={{
-          backgroundImage: `url(${isMobile ? SubmitMobile : SubmitLaptop})`,
-          backgroundSize: isMobile ? 'cover' : 'contain',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat'
-        }}
-      >
-        <div className="bg-opacity-90 p-6 sm:p-8 rounded-xl max-w-md w-full">
-          <h2 className="text-[20px] sm:text-2xl font-bold mb-8 sm:mb-6 text-[#144559]">
-            Help us know who you are
-          </h2>
-          <form onSubmit={handleSubmit} className="w-full grid gap-6 text-left">
-            {/* Name */}
-            <div>
-              <label htmlFor="name" className="block font-semibold mb-2 text-black">
-                Name
-              </label>
-              <input
-                id="name"
-                name="name"
-                value={userInfo.name}
-                onChange={handleFormChange}
-                placeholder="Enter your Name"
-                className="w-full px-4 py-4 bg-[#F2F2F7] rounded-t-2xl border-none border-b-2 outline-none"
-                style={{ borderBottom: '2px solid #00796B' }}
-                maxLength={50}
-              />
-              {formErrors.name && <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>}
-            </div>
+    <div
+  className="w-full min-h-screen flex flex-col lg:flex-row items-center justify-center bg-[#f9fafb]"
+>
+  {/* Left Side Image (only visible on large screens) */}
+  {/* <div className="hidden lg:flex w-1/2 h-full items-center justify-center bg-[#eaf3f6]">
+    <img
+      src={SubmitLaptop}
+      alt="Builder Laptop Illustration"
+      className="max-w-[80%] h-auto object-contain"
+    />
+  </div> */}
 
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="block font-semibold mb-2 text-black">
-                Email
-              </label>
-              <input
-                id="email"
-                name="email"
-                type="email"
-                value={userInfo.email}
-                onChange={handleFormChange}
-                placeholder="Enter your Email"
-                className="w-full px-4 py-4 bg-[#F2F2F7] rounded-t-2xl border-none border-b-2 outline-none"
-                style={{ borderBottom: '2px solid #00796B' }}
-              />
-              {formErrors.email && <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>}
-            </div>
+  {/* Right Side Form */}
+  <div
+    className="flex flex-col justify-center items-center w-full lg:w-1/2 px-8 sm:px-10 py-10 text-center bg-cover bg-center"
+    style={{
+      backgroundImage: isMobile ? `url(${SubmitMobile})` : "none",
+      backgroundSize: "cover",
+      backgroundPosition: "center",
+    }}
+  >
+    <div className="bg-white shadow-xl rounded-2xl p-8 sm:p-10 w-full max-w-lg">
+      <h1 className="sm:text-2xl font-bold mb-4 text-[#144559]">
+        Your Builder Type is almost ready…
+      </h1>
+      <p className="text-gray-700 mb-8">
+        Enter your email to see your results and unlock your free Builder Blueprint.
+      </p>
 
-            {/* Gender */}
-            <div>
-              <label htmlFor="gender" className="block font-semibold mb-2 text-black">
-                Gender
-              </label>
-              <select
-                id="gender"
-                name="gender"
-                value={userInfo.gender}
-                onChange={handleFormChange}
-                className="w-full px-4 py-4 bg-[#fefefe] rounded-t-2xl border-none border-b-2 outline-none"
-                style={{ borderBottom: '2px solid #00796B' }}
-              >
-                <option value="">Select your gender</option>
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-              </select>
-              {formErrors.gender && <p className="text-red-500 text-sm mt-1">{formErrors.gender}</p>}
-            </div>
-
-            {/* Submission Feedback */}
-            {status.error && <p className="text-red-600 text-sm font-semibold text-center">{status.error}</p>}
-            {status.success && <p className="text-green-600 text-sm font-semibold text-center">Submission successful! Check your email for your full test result.</p>}
-
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={status.loading}
-              className="bg-[#144559] text-white py-4 rounded-full mx-auto font-semibold mt-4 w-full sm:w-1/2 transition duration-300 hover:scale-105"
-            >
-              {status.loading ? 'Submitting...' : 'Submit'}
-            </button>
-          </form>
+      <form onSubmit={handleSubmit} className="w-full grid gap-6 text-left">
+        {/* Name */}
+        <div>
+          <label htmlFor="name" className="block font-semibold mb-2 text-black">
+            Name
+          </label>
+          <input
+            id="name"
+            name="name"
+            value={userInfo.name}
+            onChange={handleFormChange}
+            placeholder="Enter your Name"
+            className="w-full px-4 py-3 bg-[#F2F2F7] rounded-xl outline-none border border-[#d1d5db] focus:border-[#00796B]"
+            maxLength={50}
+          />
+          {formErrors.name && (
+            <p className="text-red-500 text-sm mt-1">{formErrors.name}</p>
+          )}
         </div>
-      </div>
+
+        {/* Email */}
+        <div>
+          <label htmlFor="email" className="block font-semibold mb-2 text-black">
+            Email
+          </label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            value={userInfo.email}
+            onChange={handleFormChange}
+            placeholder="Enter your Email"
+            className="w-full px-4 py-3 bg-[#F2F2F7] rounded-xl outline-none border border-[#d1d5db] focus:border-[#00796B]"
+          />
+          {formErrors.email && (
+            <p className="text-red-500 text-sm mt-1">{formErrors.email}</p>
+          )}
+        </div>
+
+        {/* Status Feedback */}
+        {status.error && (
+          <p className="text-red-600 text-sm font-semibold text-center">
+            {status.error}
+          </p>
+        )}
+        {status.success && (
+          <p className="text-green-600 text-sm font-semibold text-center">
+            Submission successful! Check your email for your full test result.
+          </p>
+        )}
+
+        {/* Submit Button */}
+        <button
+          type="submit"
+          disabled={status.loading}
+          className="bg-[#144559] text-white py-4 rounded-full font-semibold mt-4 w-full transition duration-300 hover:scale-105"
+        >
+          {status.loading ? 'Submitting...' : 'Unlock My Result'}
+        </button>
+
+        {/* Bonus Section */}
+        <h2 className=" sm:text-2xl font-bold mb-2 mt-6 text-[#144559]">
+          Your free Builder Blueprint includes:
+        </h2>
+        <ul className="list-disc pl-6 space-y-2 text-gray-700">
+          <li>A full breakdown of your Builder Type (traits, strengths, and blind spots).</li>
+          <li>How you’re wired to think, work, lead, and collaborate.</li>
+          <li>Real-world examples and growth strategies.</li>
+          <li>A simple action plan to get unstuck and build with confidence.</li>
+        </ul>
+
+        <p className="italic mt-4 text-gray-700">
+          Your privacy is protected. No spam. Just your results and your free PDF.
+        </p>
+
+        <p className="mt-2 text-gray-600">
+          You’ll also receive a quick follow-up to share your feedback — it’ll help shape the future of this experience.
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
+
     );
   }
 
