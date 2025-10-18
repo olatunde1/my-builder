@@ -101,7 +101,7 @@ const HomePage = () => {
   <img
     src={Quiz}
     alt="Quiz"
-    className="w-16 sm:w-20 mb-4 ml-auto relative z-10"
+    className="w-16 sm:w-20 mb-4 mx-auto lg:mx-0 lg:ml-auto relative z-10"
   />
 
   <div className="relative z-10">
@@ -125,7 +125,7 @@ const HomePage = () => {
               <div className="relative w-full flex-col-reverse max-w-[355px] mx-auto p-6 rounded-lg shadow-xl border-t-4 border-[#027D5F] cursor-pointer overflow-hidden">
   {/* Half-curve background vector */}
   <div className="absolute -top-10 -right-16 w-100 h-40 bg-gradient-to-br from-[#027D5F] to-[#9de0cf] rounded-full opacity-40 blur-2xl"></div>
-                <img src={Image1} alt="Result" className="w-16 sm:w-20 mb-4 ml-auto" />
+                <img src={Image1} alt="Result" className="w-16 sm:w-20 mb-4 mx-auto lg:mx-0 lg:ml-auto" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
                   See Your Builder Type Instantly
                 </h3>
@@ -144,7 +144,7 @@ const HomePage = () => {
               <div className="relative w-full flex-col-reverse max-w-[355px] mx-auto p-6 rounded-lg shadow-xl border-t-4 border-[#FFDB51] cursor-pointer overflow-hidden">
   {/* Half-curve background vector */}
   <div className="absolute -top-10 -right-16 w-100 h-40 bg-gradient-to-br from-[#FFDB51] to-[#f5e6ad] rounded-full opacity-40 blur-2xl"></div>
-                <img src={Pdf} alt="Blueprint" className="w-16 sm:w-20 mb-4 ml-auto" />
+                <img src={Pdf} alt="Blueprint" className="w-16 sm:w-20 mb-4 mx-auto lg:mx-0 lg:ml-auto" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
                   Unlock Your Free In-Depth Builder Blueprint
                 </h3>
