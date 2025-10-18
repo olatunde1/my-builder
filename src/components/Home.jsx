@@ -55,7 +55,7 @@ const HomePage = () => {
             {/* Text Section */}
             <div
               className="text-center lg:text-left px-2 sm:px-0 flex-1"
-              data-aos="fade-up"
+              // data-aos="fade-up"
             >
               <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-2 pt-8 lg:pt-[0px] leading-snug">
                 Know Your Builder Type
@@ -96,7 +96,7 @@ const HomePage = () => {
               {/* Step 1 */}
               <div
                 className="w-full max-w-[255px] mx-auto p-2 rounded-lg"
-                data-aos="fade-up"
+                // data-aos="fade-up"
               >
                 <img src={Quiz} alt="Quiz" className="mx-auto w-16 sm:w-20 mb-4" />
                 <h3 className="text-lg sm:text-xl font-semibold mb-2 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent">
@@ -157,7 +157,7 @@ const HomePage = () => {
 >
   <div className="max-w-[1440px] mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-36 px-4 sm:px-6 lg:px-10 py-0">
     {/* Text */}
-    <div className="flex-1 text-center lg:text-left" data-aos="fade-up">
+    <div className="flex-1 text-center lg:text-left" >
       <p className="pb-4 bg-gradient-to-r from-[#003630] to-[#00C896] bg-clip-text text-transparent text-sm sm:text-base font-medium tracking-wide">
         → Builder Types
       </p>
