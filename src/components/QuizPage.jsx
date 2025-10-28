@@ -97,7 +97,7 @@ const QuizPage = () => {
     if (!userInfo.name.trim()) errors.name = 'Name is required';
     if (!userInfo.email) errors.email = 'Email is required';
     else if (!validateEmail(userInfo.email)) errors.email = 'Please enter a valid email';
-    if (!userInfo.gender) errors.gender = 'Please select your gender';
+    // if (!userInfo.gender) errors.gender = 'Please select your gender';
     setFormErrors(errors);
     return Object.keys(errors).length === 0;
   };
@@ -153,7 +153,7 @@ const QuizPage = () => {
       await sendEmail({
         name: userInfo.name,
         email: userInfo.email,
-        gender: userInfo.gender,
+        // gender: userInfo.gender,
         trait: resultTrait,
         resultText: builderResults[resultTrait]?.description || "No detailed result available."
       });
@@ -169,7 +169,7 @@ const QuizPage = () => {
           name: userInfo.name,
           email: userInfo.email,
           builderType: resultTrait,
-          gender: userInfo.gender,
+          // gender: userInfo.gender,
           submittedAt: new Date().toLocaleString()
         }
       })

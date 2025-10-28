@@ -97,8 +97,8 @@ const ResultPage = ({ builderType }) => {
                 avoid common traps, and build with confidence.
                 <span>
                   {' '}
-                  <a href="#" className="underline hover:opacity-80 transition" style={{ color: backgroundColor }}>
-                    Click here <button></button>
+                  <a href="https://tally.so/r/wAZjBB" className="underline hover:opacity-80 transition" style={{ color: backgroundColor }}>
+                    Click here 
                   </a>
                 </span>
               </p>
