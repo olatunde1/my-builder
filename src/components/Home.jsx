@@ -57,10 +57,10 @@ const HomePage = () => {
               className="text-center lg:text-left px-2 sm:px-0 flex-1"
               // data-aos="fade-up"
             >
-              <h1 className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white mb-2 pt-2 lg:pt-[0px] leading-snug">
+              <h1 className="text-3xl sm:text-5xl font-display lg:text-7xl  text-white mb-2 pt-2 lg:pt-[0px] leading-snug">
                 Know Your Builder Type
               </h1>
-              <p className="text-white text-base sm:text-lg lg:text-xl pt-2 lg:pb-20 sm:pt-4 leading-relaxed">
+              <p className="text-white font-body text-base sm:text-lg lg:text-xl pt-2 lg:pb-20 sm:pt-4 leading-relaxed">
                 Discover how you’re wired to think, work,
                 <br className="hidden sm:block" /> lead, and contribute.
               </p>
@@ -79,11 +79,16 @@ const HomePage = () => {
           {/* Take Quiz Button */}
           <Link
             to="/quiz"
-            className="bg-[#AE4815] w-[90%] sm:w-[420px] py-3 sm:py-6 bottom-10 left-5 absolute lg:left-32 lg:translate-x-0 lg:bottom-5 text-white rounded-xl sm:rounded-full text-lg sm:text-2xl font-semibold flex items-center justify-center gap-2 hover:bg-[#9a3909] transition duration-300"
+            className="bg-[#AE4815] w-[90%] sm:w-[420px]
+            py-3 sm:py-6 bottom-10 left-5 absolute lg:left-32
+            lg:translate-x-0 lg:bottom-5 text-white rounded-xl
+            sm:rounded-full text-lg sm:text-2xl font-semibold flex
+            items-center justify-center gap-2 hover:bg-[#9a3909] transition duration-300"
           >
             Take the Quiz <FaArrowCircleRight className="text-2xl sm:text-4xl" />
           </Link>
         </div>
+        
 
         {/* ✅ START IN THREE STEPS */}
         <div className="start">

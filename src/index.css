@@ -1,1 +1,16 @@
 @import "tailwindcss";
+@font-face {
+  font-family: 'Clash Display', sans-serif;
+  src: url('/src/assets/fonts/ClashDisplay-Variable.woff2') format('woff2');
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+}
+*{
+    font-family: 'Clash Display', sans-serif;
+}
+

@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        display: ['Clash Display', 'sans-serif'],
+        body: ['Inter', 'sans-serif'], // optional recommended pairing
+      },
+    },
     screens: {
       'sm': '640px',   // Small (phones)
       'md': '768px',   // Medium (tablets)
