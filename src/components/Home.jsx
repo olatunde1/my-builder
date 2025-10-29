@@ -22,6 +22,9 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
 import LogoImage from "../assets/new-logo.png";
 import { FaQuoteLeft } from "react-icons/fa";
+import Facebook from "../assets/footer-facebook.png";
+import Instagram from "../assets/footer-instagram.png";
+import Linkedln from "../assets/footer-linkdeln.png";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -291,7 +294,7 @@ const HomePage = () => {
         </section>
 
         {/* ✅ FOOTER */}
-        <footer className="w-full bg-white text-[#0f3340] py-4">
+        <footer className="w-full bg-white text-[#144559] py-4">
           <div className="container mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-8 md:px-20">
             <img src={LogoImage} alt="Logo" className="h-20 w-auto" />
             <p className="text-sm md:text-base text-center">
@@ -300,13 +303,13 @@ const HomePage = () => {
             </p>
             <div className="flex gap-4 text-lg">
               <a href="#" className="hover:text-gray-400">
-                <FaFacebookF />
+               <img src={Facebook} alt="" />
               </a>
               <a href="#" className="hover:text-gray-400">
-                <FaInstagram />
+              <img src={Instagram} alt="" />
               </a>
               <a href="#" className="hover:text-gray-400">
-                <FaTwitter />
+                  <img src={Linkedln} alt="" />
               </a>
             </div>
           </div>
